@@ -83,6 +83,7 @@ bool Player::resurrect()
 
     hp = maxHp;
 
+
     usedResurrection = true;
 
     return true;
