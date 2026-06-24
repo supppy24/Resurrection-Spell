@@ -8,6 +8,7 @@
 
 PlayScene::PlayScene()
 {
+    kImage = LoadGraph("image/Komando.jpg");
     srand(static_cast<unsigned int>(time(nullptr)));
 
     isGameOver = false;
@@ -63,8 +64,7 @@ void PlayScene::Update()
 
         if (key3 && !oldKey3)
         {
-            player.heal();
-
+            player.defend();
             isPlayerTurn = false;
         }
 
@@ -138,7 +138,7 @@ void PlayScene::Draw()
         "======================",
         color);
 
-    DrawString(
+   /* DrawString(
         0,
         160,
         "コマンドをえらべ！！",
@@ -166,11 +166,11 @@ void PlayScene::Draw()
         0,
         290,
         "4:ふっかつのじゅもん",
-        color);
+        color);*/
 
     DrawString(
         0,
-        360,
+        200,
         "[T]キーでタイトルへ",
         color);
 
@@ -191,4 +191,6 @@ void PlayScene::Draw()
             "プレイヤーは倒れた...",
             GetColor(255, 0, 0));
     }
+
+     DrawGraph(0, 350, kImage, true);
 }
