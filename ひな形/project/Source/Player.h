@@ -6,32 +6,52 @@
 class Player
 {
 private:
+    // 現在HP
     int hp;
+
+    // 最大HP
     int maxHp;
+
+    // 現在MP
     int mp;
 
+    // 通常攻撃力
     int attackPower;
-    int skillPower;
-    int healPower;
 
+    // スキル攻撃力
+    int skillPower;
+
+    // ふっかつのじゅもん使用済みフラグ
     bool usedResurrection;
+
+    // 防御中かどうか
+    bool isDefending;
 
 public:
     Player();
 
+    // 各種ゲッター
     int getHp() const;
     int getMaxHp() const;
     int getMp() const;
 
+    // 戦闘状態確認
     bool isDead() const;
     bool hasUsedResurrection() const;
 
+    // 通常攻撃
     void attack(Enemy& enemy);
+
+    // スキル攻撃
     bool skill(Enemy& enemy);
 
-    bool heal();
+    // 防御
+    void defend();
+
+    // ふっかつのじゅもん
     bool resurrect();
 
+    // ダメージを受ける
     void takeDamage(int damage);
 };
 

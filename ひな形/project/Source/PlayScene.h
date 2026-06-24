@@ -18,6 +18,8 @@ private:
     Player player;
     Enemy enemy;
 
+    int kImage;
+
     bool isGameOver;
     bool isPlayerTurn;
 
