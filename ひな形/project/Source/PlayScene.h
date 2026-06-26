@@ -18,7 +18,11 @@ private:
     Player player;
     Enemy enemy;
 
+    int enemyType;
     int kImage;
+
+    bool newEnemyMessage;
+    int messageTimer;
 
     bool isGameOver;
     bool isPlayerTurn;
