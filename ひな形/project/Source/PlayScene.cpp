@@ -18,6 +18,12 @@ PlayScene::PlayScene()
     oldKey2 = false;
     oldKey3 = false;
     oldKey4 = false;
+
+    enemyType = 1;
+    enemy = Enemy(enemyType);
+
+    newEnemyMessage = false;
+    messageTimer = 0;
 }
 
 PlayScene::~PlayScene()
@@ -26,6 +32,20 @@ PlayScene::~PlayScene()
 
 void PlayScene::Update()
 {
+    if (newEnemyMessage)
+    {
+        messageTimer--;
+
+        if (messageTimer <= 0)
+        {
+            enemy = Enemy();          // 新しい敵を生成
+            newEnemyMessage = false;
+        }
+
+        return;   // メッセージ表示中は他の処理を止める
+    }
+
+
     if (CheckHitKey(KEY_INPUT_T))
     {
         SceneManager::ChangeScene("TITLE");
@@ -98,6 +118,20 @@ void PlayScene::Update()
         }
 
         isPlayerTurn = true;
+    }
+
+    if (enemy.isDead())
+    {
+        enemyType++;
+
+        if (enemyType <= 3)
+        {
+            enemy = Enemy(enemyType);
+        }
+        else
+        {
+            isGameOver = true;
+        }
     }
 }
 
@@ -174,12 +208,14 @@ void PlayScene::Draw()
         "[T]キーでタイトルへ",
         color);
 
-    if (enemy.isDead())
+   
+
+    if (newEnemyMessage)
     {
         DrawString(
             0,
-            420,
-            "敵を倒した！ 勝利！！",
+            160,
+            "新しい敵が現れた！",
             GetColor(255, 255, 0));
     }
 
@@ -187,7 +223,7 @@ void PlayScene::Draw()
     {
         DrawString(
             0,
-            420,
+            160,
             "プレイヤーは倒れた...",
             GetColor(255, 0, 0));
     }
