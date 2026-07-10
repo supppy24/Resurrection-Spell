@@ -1,17 +1,27 @@
 #pragma once
 
+#include "EnemyBase.h"
+
 class Skall
 {
 public:
-	Skall();
-	~Skall();
-	void Update();
-	void Draw();
+    Skall();
+    ~Skall();
+
+    //void Update();
+    void Draw();
+
+    // ÉXÉJÉãÇÃçsìÆ
+    int Act();
+
+    int GetHP() const;
+    void TakeDamage(int damage);
+    bool IsDead() const;
 
 private:
-	int HP;
-	int Attack;
-	int Skill;
+    int HP;
+    int Attack;
+    int Skill;
 
-	int slimage;
+    int skaimage;
 };

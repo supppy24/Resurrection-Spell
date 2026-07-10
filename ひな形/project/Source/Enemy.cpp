@@ -1,124 +1,336 @@
 #include "Enemy.h"
 
-#include "Slime.h"
-#include "Goblin.h"
-#include "Doragon.h"
-#include "Mimick.h"
-#include "Ghost.h"
-#include "Gorem.h"
-#include "Majyo.h"
-#include "Maou.h"
-#include "Medusa.h"
-#include "Skall.h"
+#include <cstdlib>
+
 
 Enemy::Enemy(int type)
 {
-    switch (type)
+    enemyType = type;
+}
+
+
+//--------------------------------
+// HP取得
+//--------------------------------
+int Enemy::getHp() const
+{
+
+    switch (enemyType)
     {
+
+    case 1:
+        return slime.GetHP();
+
+
+    case 2:
+        return goblin.GetHP();
+
+
+    case 3:
+        return doragon.GetHP();
+
+
+    case 4:
+        return mimick.GetHP();
+
+
+    case 5:
+        return ghost.GetHP();
+
+
+    case 6:
+        return gorem.GetHP();
+
+
+    case 7:
+        return majyo.GetHP();
+
+
+    case 8:
+        return maou.GetHP();
+
+
+    case 9:
+        return medusa.GetHP();
+
+
+    case 10:
+        return skall.GetHP();
+
+    }
+
+
+    return 0;
+}
+
+
+
+//--------------------------------
+// 名前取得
+//--------------------------------
+std::string Enemy::getName() const
+{
+
+    switch (enemyType)
+    {
+
+    case 1:
+        return "スライム";
+
+
+    case 2:
+        return "ゴブリン";
+
+
+    case 3:
+        return "ドラゴン";
+
+
+    case 4:
+        return "ミミック";
+
+
+    case 5:
+        return "ゴースト";
+
+
+    case 6:
+        return "ゴーレム";
+
+
+    case 7:
+        return "魔女";
+
+
+    case 8:
+        return "魔王";
+
+
+    case 9:
+        return "メデューサ";
+
+
+    case 10:
+        return "スカル";
+
+    }
+
+
+    return "";
+}
+
+
+
+//--------------------------------
+// 画像取得
+//--------------------------------
+void Enemy::Draw()
+{
+
+    switch (enemyType)
+    {
+
     case 1:
 
-        enemy = new Slime();
+        slime.Draw();
 
         break;
+
 
     case 2:
 
-        enemy = new Goblin();
+        goblin.Draw();
 
         break;
+
 
     case 3:
 
-        enemy = new Doragon();
+        doragon.Draw();
 
         break;
+
 
     case 4:
 
-        enemy = new Mimick();
+        mimick.Draw();
 
         break;
+
 
     case 5:
 
-        enemy = new Ghost();
+        ghost.Draw();
 
         break;
+
 
     case 6:
 
-        enemy = new Gorem();
+        gorem.Draw();
 
         break;
+
 
     case 7:
 
-        enemy = new Majyo();
+        majyo.Draw();
 
         break;
+
 
     case 8:
 
-        enemy = new Maou();
+        maou.Draw();
 
         break;
+
 
     case 9:
 
-        enemy = new Medusa();
+        medusa.Draw();
 
         break;
+
 
     case 10:
 
-        enemy = new Skall();
+        skall.Draw();
 
         break;
 
-    default:
-
-        enemy = new Slime();
-
-        break;
     }
+
 }
 
-Enemy::~Enemy()
+
+
+//--------------------------------
+// ダメージ
+//--------------------------------
+void Enemy::takeDamage(int damage)
 {
-    delete enemy;
+
+    switch (enemyType)
+    {
+
+    case 1:
+        slime.TakeDamage(damage);
+        break;
+
+
+    case 2:
+        goblin.TakeDamage(damage);
+        break;
+
+
+    case 3:
+        doragon.TakeDamage(damage);
+        break;
+
+
+    case 4:
+        mimick.TakeDamage(damage);
+        break;
+
+
+    case 5:
+        ghost.TakeDamage(damage);
+        break;
+
+
+    case 6:
+        gorem.TakeDamage(damage);
+        break;
+
+
+    case 7:
+        majyo.TakeDamage(damage);
+        break;
+
+
+    case 8:
+        maou.TakeDamage(damage);
+        break;
+
+
+    case 9:
+        medusa.TakeDamage(damage);
+        break;
+
+
+    case 10:
+        skall.TakeDamage(damage);
+        break;
+
+    }
+
 }
 
-void Enemy::Update()
+
+
+//--------------------------------
+// 敵の行動
+//--------------------------------
+int Enemy::act()
 {
-    enemy->Update();
+
+    switch (enemyType)
+    {
+
+    case 1:
+        return slime.Act();
+
+
+    case 2:
+        return goblin.Act();
+
+
+    case 3:
+        return doragon.Act();
+
+
+    case 4:
+        return mimick.Act();
+
+
+    case 5:
+        return ghost.Act();
+
+
+    case 6:
+        return gorem.Act();
+
+
+    case 7:
+        return majyo.Act();
+
+
+    case 8:
+        return maou.Act();
+
+
+    case 9:
+        return medusa.Act();
+
+
+    case 10:
+        return skall.Act();
+
+    }
+
+
+    return 0;
 }
 
-void Enemy::Draw()
-{
-    enemy->Draw();
-}
 
-int Enemy::Act()
-{
-    return enemy->Act();
-}
 
-void Enemy::TakeDamage(int damage)
+//--------------------------------
+// 死亡判定
+//--------------------------------
+bool Enemy::isDead() const
 {
-    enemy->TakeDamage(damage);
-}
 
-int Enemy::GetHP() const
-{
-    return enemy->GetHP();
-}
+    return getHp() <= 0;
 
-std::string Enemy::GetName() const
-{
-    return enemy->GetName();
-}
-
-bool Enemy::IsDead() const
-{
-    return enemy->IsDead();
 }

@@ -1,5 +1,4 @@
 #include "Slime.h"
-
 #include <cstdlib>
 
 Slime::Slime()
