@@ -1,5 +1,7 @@
 #pragma once
 
+#include "EnemyBase.h"
+
 class Slime
 {
 public:

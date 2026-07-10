@@ -1,63 +1,124 @@
 #include "Enemy.h"
-#include "DxLib.h"
-#include <cstdlib>
+
+#include "Slime.h"
+#include "Goblin.h"
+#include "Doragon.h"
+#include "Mimick.h"
+#include "Ghost.h"
+#include "Gorem.h"
+#include "Majyo.h"
+#include "Maou.h"
+#include "Medusa.h"
+#include "Skall.h"
 
 Enemy::Enemy(int type)
 {
     switch (type)
     {
     case 1:
-        name = "スライム";
-        hp = 75;
-        attackPower = 7;
-        skillPower = 15;
+
+        enemy = new Slime();
+
         break;
 
     case 2:
-        name = "ゴブリン";
-        hp = 120;
-        attackPower = 10;
-        skillPower = 20;
+
+        enemy = new Goblin();
+
         break;
 
     case 3:
-        name = "ドラゴン";
-        hp = 200;
-        attackPower = 18;
-        skillPower = 35;
+
+        enemy = new Doragon();
+
+        break;
+
+    case 4:
+
+        enemy = new Mimick();
+
+        break;
+
+    case 5:
+
+        enemy = new Ghost();
+
+        break;
+
+    case 6:
+
+        enemy = new Gorem();
+
+        break;
+
+    case 7:
+
+        enemy = new Majyo();
+
+        break;
+
+    case 8:
+
+        enemy = new Maou();
+
+        break;
+
+    case 9:
+
+        enemy = new Medusa();
+
+        break;
+
+    case 10:
+
+        enemy = new Skall();
+
         break;
 
     default:
-        name = "スライム";
-        hp = 75;
-        attackPower = 7;
-        skillPower = 15;
+
+        enemy = new Slime();
+
         break;
     }
 }
 
-int Enemy::getHp() const
+Enemy::~Enemy()
 {
-    return hp;
+    delete enemy;
 }
 
-std::string Enemy::getName() const
+void Enemy::Update()
 {
-    return name;
+    enemy->Update();
 }
 
-void Enemy::takeDamage(int damage)
+void Enemy::Draw()
 {
-    hp -= damage;
-    if (hp < 0) hp = 0;
+    enemy->Draw();
 }
 
-int Enemy::act()
+int Enemy::Act()
 {
-    return (rand() % 2 == 0) ? attackPower : skillPower;
+    return enemy->Act();
 }
 
-bool Enemy::isDead() const
+void Enemy::TakeDamage(int damage)
 {
-    return hp <= 0;
+    enemy->TakeDamage(damage);
+}
+
+int Enemy::GetHP() const
+{
+    return enemy->GetHP();
+}
+
+std::string Enemy::GetName() const
+{
+    return enemy->GetName();
+}
+
+bool Enemy::IsDead() const
+{
+    return enemy->IsDead();
 }
