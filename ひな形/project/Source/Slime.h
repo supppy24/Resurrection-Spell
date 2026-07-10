@@ -1,18 +1,25 @@
 #pragma once
 
-#include <string>
 class Slime
 {
-private:
-	int HP;
-	int Attack;
-	int Skill;
-	int Slimage;
 public:
-	Slime();
-	~Slime();
-	void Update();
-	void Draw();
+    Slime();
+    ~Slime();
 
+    //void Update();
+    void Draw();
+
+    // ƒXƒ‰ƒCƒ€‚Ìs“®
+    int Act();
+
+    int GetHP() const;
+    void TakeDamage(int damage);
+    bool IsDead() const;
+
+private:
+    int HP;
+    int Attack;
+    int Skill;
+
+    int slimage;
 };
-

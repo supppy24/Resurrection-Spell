@@ -1,28 +1,55 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <string>
+#include <memory>
+
+#include "Slime.h"
+#include "Goblin.h"
+#include "Dragon.h"
+#include "Mimick.h"
+#include "Ghost.h"
+#include "Gorem.h"
+#include "Majyo.h"
+#include "Maou.h"
+#include "Medusa.h"
+#include "Skall.h"
 
 class Enemy
 {
-private:
-    int hp;
-    int attackPower;
-    int skillPower;
-
-    std::string name;
-    int image;
-
 public:
+
     Enemy(int type = 1);
 
-    int getHp() const;
-    std::string getName() const;
-    int getImage() const;
+    void Update();
+    void Draw();
 
-    void takeDamage(int damage);
-    int act();
-    bool isDead() const;
+    int Act();
+
+    void TakeDamage(int damage);
+
+    bool IsDead();
+
+    int GetHP();
+
+    int GetImage();
+
+    const char* GetName();
+
+private:
+
+    int enemyType;
+
+    // ç°êÌÇ¡ÇƒÇ¢ÇÈìG
+    Slime slime;
+    Goblin goblin;
+    Doragon dragon;
+    Mimick mimick;
+    Ghost ghost;
+    Gorem gorem;
+    Majyo majyo;
+    Maou maou;
+    Medusa medusa;
+    Skall skall;
 };
 
 #endif
