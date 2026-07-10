@@ -1,17 +1,27 @@
 #pragma once
 
+#include "EnemyBase.h"
+
 class Gorem
 {
 public:
-	Gorem();
-	~Gorem();
-	void Update();
-	void Draw();
+    Gorem();
+    ~Gorem();
+
+    //void Update();
+    void Draw();
+
+    // ÉSÅ[ÉåÉÄÇÃçsìÆ
+    int Act();
+
+    int GetHP() const;
+    void TakeDamage(int damage);
+    bool IsDead() const;
 
 private:
-	int HP;
-	int Attack;
-	int Skill;
+    int HP;
+    int Attack;
+    int Skill;
 
-	int slimage;
-}; 
+    int gorimage;
+};
