@@ -1,5 +1,5 @@
 #include "Enemy.h"
-
+#include "DxLib.h"
 #include <cstdlib>
 
 

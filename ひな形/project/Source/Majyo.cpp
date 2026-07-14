@@ -1,4 +1,5 @@
 #include "Majyo.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Majyo::Majyo()
@@ -6,6 +7,8 @@ Majyo::Majyo()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    majimage = LoadGraph("image/MAJYO.png");
 }
 
 Majyo::~Majyo()
@@ -20,7 +23,7 @@ Majyo::~Majyo()
 
 void Majyo::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ

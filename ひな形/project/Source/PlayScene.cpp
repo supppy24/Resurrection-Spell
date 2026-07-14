@@ -284,16 +284,16 @@ void PlayScene::Draw()
 
     // バトルログ
     DrawString(
-        420,
-        20,
+        1000,
+        480,
         "====== バトルログ ======",
         GetColor(255, 255, 0));
 
     for (int i = 0; i < battleLog.size(); i++)
     {
         DrawString(
-            600,
-            200 + i * 25,
+            1000,
+            500 + i * 25,
             battleLog[i].c_str(),
             GetColor(255, 255, 255));
     }

@@ -23,5 +23,5 @@ private:
     int Attack;
     int Skill;
 
-    int Ghoimage;
+    int ghoimage;
 };

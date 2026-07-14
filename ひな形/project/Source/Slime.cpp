@@ -1,4 +1,5 @@
 #include "Slime.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Slime::Slime()
@@ -6,6 +7,7 @@ Slime::Slime()
     HP = 20;
     Attack = 2;
     Skill = 5;
+    slimage = LoadGraph("image/SLIME.png");
 }
 
 Slime::~Slime()
@@ -20,7 +22,7 @@ Slime::~Slime()
 
 void Slime::Draw()
 {
-
+    DrawGraph(500,500,0,true);
 }
 
 // çsìÆ

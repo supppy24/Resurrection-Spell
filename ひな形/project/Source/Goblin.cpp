@@ -1,4 +1,5 @@
 #include "Goblin.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Goblin::Goblin()
@@ -6,6 +7,8 @@ Goblin::Goblin()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    gobimage = LoadGraph("image/GOBLIN.png");
 }
 
 Goblin::~Goblin()
@@ -20,7 +23,7 @@ Goblin::~Goblin()
 
 void Goblin::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ

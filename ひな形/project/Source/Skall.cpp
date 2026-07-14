@@ -1,4 +1,5 @@
 #include "Skall.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Skall::Skall()
@@ -6,6 +7,8 @@ Skall::Skall()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    skaimage = LoadGraph("image/SKALL.png");
 }
 
 Skall::~Skall()
@@ -20,7 +23,7 @@ Skall::~Skall()
 
 void Skall::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ
