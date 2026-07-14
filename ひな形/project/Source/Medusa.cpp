@@ -1,4 +1,5 @@
 #include "Medusa.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Medusa::Medusa()
@@ -6,6 +7,8 @@ Medusa::Medusa()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    medimage = LoadGraph("image/MEDUSA.png");
 }
 
 Medusa::~Medusa()
@@ -20,7 +23,7 @@ Medusa::~Medusa()
 
 void Medusa::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // s“®

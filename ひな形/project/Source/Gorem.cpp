@@ -1,4 +1,5 @@
 #include "Gorem.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Gorem::Gorem()
@@ -6,6 +7,8 @@ Gorem::Gorem()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    gorimage = LoadGraph("image/GOREM.png");
 }
 
 Gorem::~Gorem()
@@ -20,7 +23,7 @@ Gorem::~Gorem()
 
 void Gorem::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ

@@ -1,4 +1,5 @@
 #include "Doragon.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Doragon::Doragon()
@@ -6,6 +7,8 @@ Doragon::Doragon()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    doraimage = LoadGraph("image/DORAGON.png");
 }
 
 Doragon::~Doragon()
@@ -20,7 +23,7 @@ Doragon::~Doragon()
 
 void Doragon::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ

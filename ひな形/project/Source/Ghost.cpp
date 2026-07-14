@@ -1,4 +1,5 @@
 #include "Ghost.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Ghost::Ghost()
@@ -6,6 +7,8 @@ Ghost::Ghost()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    ghoimage = LoadGraph("image/GHOST.png");
 }
 
 Ghost::~Ghost()
@@ -20,7 +23,7 @@ Ghost::~Ghost()
 
 void Ghost::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ

@@ -1,4 +1,5 @@
 #include "Maou.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Maou::Maou()
@@ -6,6 +7,8 @@ Maou::Maou()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    maoimage = LoadGraph("image/MAOU.png");
 }
 
 Maou::~Maou()
@@ -20,7 +23,7 @@ Maou::~Maou()
 
 void Maou::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ

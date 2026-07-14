@@ -1,4 +1,5 @@
 #include "Mimick.h"
+#include "DxLib.h"
 #include <cstdlib>
 
 Mimick::Mimick()
@@ -6,6 +7,8 @@ Mimick::Mimick()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
+    mimiimage = LoadGraph("image/MIMICK.png");
 }
 
 Mimick::~Mimick()
@@ -20,7 +23,7 @@ Mimick::~Mimick()
 
 void Mimick::Draw()
 {
-
+    DrawGraph(500, 500, 0, true);
 }
 
 // çsìÆ
