@@ -9,7 +9,7 @@ public:
     ~Slime();
 
     //void Update();
-    void Draw();
+    void Draw(int x, int y);
 
     // ƒXƒ‰ƒCƒ€‚Ìs“®
     int Act();

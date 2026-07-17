@@ -61,6 +61,6 @@ public:
 
 
     // ‰æ‘œŽæ“¾
-    void Draw();
+    void Draw(int x, int y);
 
 };

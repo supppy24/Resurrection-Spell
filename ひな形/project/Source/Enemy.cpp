@@ -116,7 +116,7 @@ std::string Enemy::getName() const
     }
 
 
-    return "";
+    return " ";
 }
 
 
@@ -124,7 +124,7 @@ std::string Enemy::getName() const
 //--------------------------------
 // ‰æ‘œŽæ“¾
 //--------------------------------
-void Enemy::Draw()
+void Enemy::Draw(int x, int y)
 {
 
     switch (enemyType)
@@ -132,7 +132,7 @@ void Enemy::Draw()
 
     case 1:
 
-        slime.Draw();
+        slime.Draw(x,y);
 
         break;
 
