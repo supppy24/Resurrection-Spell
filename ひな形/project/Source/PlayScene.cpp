@@ -1,18 +1,17 @@
 #include <ctime>
+#include <vector>
 #include <string>
 
 #include "DxLib.h"
 
 #include "../Library/SceneManager.h"
-
 #include "PlayScene.h"
 
 PlayScene::PlayScene()
 {
-    // コマンド画像を読み込む
     kImage = LoadGraph("image/Komando.jpg");
 
-    srand(static_cast<unsigned int>(time(nullptr)));
+    srand((unsigned int)time(nullptr));
 
     isGameOver = false;
     isPlayerTurn = true;
@@ -22,59 +21,59 @@ PlayScene::PlayScene()
     oldKey3 = false;
     oldKey4 = false;
 
-    // 最初の敵を生成
-    enemyType = 1;
-    enemy = Enemy(enemyType);
+    // ステージ番号
+    currentStage = 0;
 
-    newEnemyMessage = false;
-    messageTimer = 0;
+    // ステージ設定
+    stages =
+    {
+        {1},        // スライム
+        {2},        // ゴブリン
+        {3},        // ドラゴン
+        {1,2},      // スライム＋ゴブリン
+        {4},        // ミミック
+        {5,6},      // ゴースト＋ゴーレム
+        {7},        // 魔女
+        {8},        // 魔王
+        {9,10}      // メデューサ＋スカル
+    };
 
-    // ログ初期化
+    // 最初のステージ
+    LoadStage(currentStage);
+
     battleLog.clear();
-    AddLog("スライムが あらわれた！");
+    AddLog("敵が現れた！");
 }
 
 PlayScene::~PlayScene()
 {
 }
 
+void PlayScene::LoadStage(int stage)
+{
+    enemies.clear();
+
+    for (int type : stages[stage])
+    {
+        enemies.push_back(Enemy(type));
+    }
+}
+
 void PlayScene::Update()
 {
-    //--------------------------------------------------
-    // 新しい敵が出現するメッセージ表示中
-    //--------------------------------------------------
-    if (newEnemyMessage)
-    {
-        messageTimer--;
-
-        if (messageTimer <= 0)
-        {
-            enemy = Enemy(enemyType);
-            newEnemyMessage = false;
-        }
-
-        return;
-    }
-
-    //--------------------------------------------------
-    // タイトルへ戻る
-    //--------------------------------------------------
     if (CheckHitKey(KEY_INPUT_T))
     {
         SceneManager::ChangeScene("TITLE");
     }
 
-    //--------------------------------------------------
-    // ゲーム終了なら終了
-    //--------------------------------------------------
     if (isGameOver)
     {
         return;
     }
 
-    //--------------------------------------------------
-    // プレイヤーターン
-    //--------------------------------------------------
+    //------------------------
+// プレイヤーターン
+//------------------------
     if (isPlayerTurn)
     {
         //--------------------------
@@ -84,16 +83,20 @@ void PlayScene::Update()
 
         if (key1 && !oldKey1)
         {
-            player.attack(enemy);
-
-            AddLog("プレイヤーのこうげき！");
-
-            if (enemy.isDead())
+            if (!enemies.empty())
             {
-                AddLog("敵をたおした！");
-            }
+                player.attack(enemies[0]);
 
-            isPlayerTurn = false;
+                AddLog("プレイヤーの攻撃！");
+
+                if (enemies[0].isDead())
+                {
+                    AddLog(enemies[0].getName() + "を倒した！");
+                    enemies.erase(enemies.begin());
+                }
+
+                isPlayerTurn = false;
+            }
         }
 
         oldKey1 = key1;
@@ -105,16 +108,20 @@ void PlayScene::Update()
 
         if (key2 && !oldKey2)
         {
-            player.skill(enemy);
-
-            AddLog("スキルをつかった！");
-
-            if (enemy.isDead())
+            if (!enemies.empty())
             {
-                AddLog("敵をたおした！");
-            }
+                player.skill(enemies[0]);
 
-            isPlayerTurn = false;
+                AddLog("スキルをつかった！");
+
+                if (enemies[0].isDead())
+                {
+                    AddLog(enemies[0].getName() + "を倒した！");
+                    enemies.erase(enemies.begin());
+                }
+
+                isPlayerTurn = false;
+            }
         }
 
         oldKey2 = key2;
@@ -152,43 +159,45 @@ void PlayScene::Update()
         oldKey4 = key4;
     }
 
-    //--------------------------------------------------
+    //------------------------
     // 敵ターン
-    //--------------------------------------------------
+    //------------------------
     else
     {
-        int damage = enemy.act();
+        for (auto& enemy : enemies)
+        {
+            int damage = enemy.act();
 
-        player.takeDamage(damage);
+            player.takeDamage(damage);
 
-        AddLog("敵のこうげき！");
+            AddLog(enemy.getName() + "の攻撃！");
+        }
 
         if (player.isDead())
         {
-            AddLog("プレイヤーは たおれた...");
+            AddLog("プレイヤーは倒れた...");
             isGameOver = true;
         }
 
         isPlayerTurn = true;
     }
 
-    //--------------------------------------------------
-    // 敵を倒したら次の敵へ
-    //--------------------------------------------------
-    if (enemy.isDead())
+    //------------------------
+    // 全滅したら次のステージ
+    //------------------------
+    if (enemies.empty())
     {
-        enemyType++;
+        currentStage++;
 
-        if (enemyType <= 3)
+        if (currentStage < stages.size())
         {
-            newEnemyMessage = true;
-            messageTimer = 120;
+            LoadStage(currentStage);
 
-            AddLog("新しい敵が あらわれた！");
+            AddLog("新しい敵が現れた！");
         }
         else
         {
-            AddLog("すべての敵をたおした！");
+            AddLog("ゲームクリア！");
             isGameOver = true;
         }
     }
@@ -198,113 +207,105 @@ void PlayScene::Draw()
 {
     int color = GetColor(255, 255, 255);
 
-    //--------------------------------------------------
-    // ステータス表示
-    //--------------------------------------------------
-    DrawString(
-        0,
-        0,
-        "======================",
-        color);
-
-    DrawFormatString(
-        0,
-        30,
-        color,
+    DrawFormatString(0, 0, color,
         "Player HP : %d",
         player.getHp());
 
-    DrawFormatString(
-        0,
-        60,
-        color,
+    DrawFormatString(0, 30, color,
         "Player MP : %d",
         player.getMp());
 
-    DrawFormatString(
-        0,
-        90,
-        color,
-        "Enemy HP : %d",
-        enemy.getHp());
 
-    DrawString(
-        0,
-        120,
-        "======================",
-        color);
-
-    //--------------------------------------------------
-    // タイトルへ戻る
-    //--------------------------------------------------
-    DrawString(
-        0,
-        200,
-        "[T]キーでタイトルへ",
-        color);
-
-    //--------------------------------------------------
     // コマンド画像
-    //--------------------------------------------------
     DrawGraph(
         0,
         350,
         kImage,
         true);
 
+
     //--------------------------------------------------
-    // メッセージ
+    // 敵表示
     //--------------------------------------------------
-    if (newEnemyMessage)
+    int enemyCount = enemies.size();
+
+    for (int i = 0; i < enemyCount; i++)
     {
-        DrawString(
-            0,
-            160,
-            "新しい敵が現れた！",
-            GetColor(255, 255, 0));
+        int x = 640;
+        int y = 250;
+
+        switch (enemyCount)
+        {
+        case 1:
+            // 1体なら中央
+            x = 640;
+            break;
+
+        case 2:
+            // 左右
+            x = (i == 0) ? 450 : 830;
+            break;
+
+        case 3:
+            // 3体
+            if (i == 0) x = 300;
+            if (i == 1) x = 640;
+            if (i == 2) x = 980;
+            break;
+
+        default:
+            x = 220 + i * 220;
+            break;
+        }
+
+
+        // 敵画像
+        enemies[i].Draw(x, y);
+
+
+        // 名前
+        DrawFormatString(
+            x - 50,
+            y + 120,
+            color,
+            "%s",
+            enemies[i].getName().c_str());
+
+
+        // HP
+        DrawFormatString(
+            x - 50,
+            y + 145,
+            color,
+            "HP : %d",
+            enemies[i].getHp());
     }
 
-    if (player.isDead())
-    {
-        DrawString(
-            0,
-            160,
-            "プレイヤーは倒れた...",
-            GetColor(255, 0, 0));
-    }
 
-    if (enemy.isDead() && enemyType > 3)
-    {
-        DrawString(
-            0,
-            160,
-            "ゲームクリア！",
-            GetColor(0, 255, 0));
-    }
-
+    //--------------------------------------------------
     // バトルログ
+    //--------------------------------------------------
     DrawString(
         1000,
-        480,
-        "====== バトルログ ======",
+        450,
+        "==== Battle Log ====",
         GetColor(255, 255, 0));
+
 
     for (int i = 0; i < battleLog.size(); i++)
     {
         DrawString(
             1000,
-            500 + i * 25,
+            480 + i * 25,
             battleLog[i].c_str(),
             GetColor(255, 255, 255));
     }
 }
-
 // ログ追加
 void PlayScene::AddLog(const std::string& text)
 {
     battleLog.push_back(text);
 
-    // 最新6件だけ残す
     if (battleLog.size() > 6)
     {
         battleLog.erase(battleLog.begin());

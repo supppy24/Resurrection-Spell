@@ -19,12 +19,17 @@ public:
 
 private:
 
-    // プレイヤーと敵
+    // プレイヤー
     Player player;
-    Enemy enemy;
 
-    // 敵の種類
-    int enemyType;
+    // 現在出現している敵
+    std::vector<Enemy> enemies;
+
+    // ステージごとの敵
+    std::vector<std::vector<int>> stages;
+
+    // 現在のステージ番号
+    int currentStage;
 
     // コマンド画像
     int kImage;
@@ -33,10 +38,10 @@ private:
     bool newEnemyMessage;
     int messageTimer;
 
-    // ゲーム終了フラグ
+    // ゲーム終了
     bool isGameOver;
 
-    // プレイヤーターンかどうか
+    // プレイヤーターン
     bool isPlayerTurn;
 
     // キー入力
@@ -46,9 +51,11 @@ private:
     bool oldKey4;
 
     // バトルログ
-    // 最新6件を表示する
     std::vector<std::string> battleLog;
 
-    // ログを追加する関数
+    // ログ追加
     void AddLog(const std::string& text);
+
+    // ステージ読み込み
+    void LoadStage(int stage);
 };

@@ -20,9 +20,10 @@ Slime::~Slime()
 //
 //}
 
-void Slime::Draw()
+void Slime::Draw(int x, int y)
 {
-    DrawGraph(500,500,0,true);
+    //DrawRotaGraph(500,300,0.5,0.0,slimage,true);
+    DrawExtendGraph(x, y, x + 128, y + 128, slimage, true);
 }
 
 // çsìÆ
