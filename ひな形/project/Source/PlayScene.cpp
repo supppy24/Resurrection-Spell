@@ -207,11 +207,11 @@ void PlayScene::Draw()
 {
     int color = GetColor(255, 255, 255);
 
-    DrawFormatString(0, 0, color,
+    DrawFormatString(1000, 600, color,
         "Player HP : %d",
         player.getHp());
 
-    DrawFormatString(0, 30, color,
+    DrawFormatString(1000, 630, color,
         "Player MP : %d",
         player.getMp());
 
@@ -270,7 +270,7 @@ void PlayScene::Draw()
         // –¼‘O
         DrawFormatString(
             x + 90,
-            y + 250,
+            y + 238,
             color,
             "%s",
             enemies[i].getName().c_str());
@@ -278,8 +278,8 @@ void PlayScene::Draw()
 
         // HP
         DrawFormatString(
-            x - 50,
-            y + 145,
+            x + 90,
+            y + 258,
             color,
             "HP : %d",
             enemies[i].getHp());
@@ -291,7 +291,7 @@ void PlayScene::Draw()
     //--------------------------------------------------
     DrawString(
         1000,
-        450,
+        350,
         "==== Battle Log ====",
         GetColor(255, 255, 0));
 
@@ -300,7 +300,7 @@ void PlayScene::Draw()
     {
         DrawString(
             1000,
-            480 + i * 25,
+            380 + i * 25,
             battleLog[i].c_str(),
             GetColor(255, 255, 255));
     }
