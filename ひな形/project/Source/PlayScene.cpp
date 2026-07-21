@@ -231,26 +231,30 @@ void PlayScene::Draw()
 
     for (int i = 0; i < enemyCount; i++)
     {
-        int x = 640;
-        int y = 250;
+        int x = 300;
+        int y = 200;
 
         switch (enemyCount)
         {
         case 1:
             // 1‘Ì‚È‚ç’†‰›
-            x = 640;
+            x = 300;
+            y = 50;
             break;
 
         case 2:
             // ¶‰E
-            x = (i == 0) ? 450 : 830;
+            x = (i == 0) ? 300 : 830;
+            y = 50;
             break;
 
         case 3:
             // 3‘Ì
-            if (i == 0) x = 300;
-            if (i == 1) x = 640;
-            if (i == 2) x = 980;
+            if (i == 0) x = 150;
+            if (i == 1) x = 340;
+            if (i == 2) x = 680;
+
+            y = 0;
             break;
 
         default:
@@ -265,8 +269,8 @@ void PlayScene::Draw()
 
         // –¼‘O
         DrawFormatString(
-            x - 50,
-            y + 120,
+            x + 90,
+            y + 250,
             color,
             "%s",
             enemies[i].getName().c_str());
