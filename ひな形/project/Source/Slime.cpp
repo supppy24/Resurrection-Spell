@@ -23,7 +23,7 @@ Slime::~Slime()
 void Slime::Draw(int x, int y)
 {
     //DrawRotaGraph(500,300,0.5,0.0,slimage,true);
-    DrawExtendGraph(x, y, x + 128, y + 128, slimage, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, slimage, true);
 }
 
 // çsìÆ
