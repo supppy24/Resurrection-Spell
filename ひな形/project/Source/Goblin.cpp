@@ -4,26 +4,27 @@
 
 Goblin::Goblin()
 {
-    HP = 20;
-    Attack = 2;
+    HP = 30;
+    Attack = 4;
     Skill = 5;
 
     gobimage = LoadGraph("image/GOBLIN.png");
+
+    lastActionName = "";
 }
 
 Goblin::~Goblin()
 {
-
 }
 
-//void Slime::Update()
+//void Goblin::Update()
 //{
 //
 //}
 
-void Goblin::Draw()
+void Goblin::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, gobimage, true);
 }
 
 // 行動
@@ -34,12 +35,24 @@ int Goblin::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名
+        lastActionName = "こんぼうなぐり";
+
         return Attack;
     }
     else
     {
+        // スキル名
+        lastActionName = "ゴブリンパンチ";
+
         return Skill;
     }
+}
+
+// 最後に使った技名
+std::string Goblin::GetLastActionName() const
+{
+    return lastActionName;
 }
 
 int Goblin::GetHP() const

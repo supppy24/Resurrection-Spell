@@ -7,12 +7,14 @@ Slime::Slime()
     HP = 20;
     Attack = 2;
     Skill = 5;
+
     slimage = LoadGraph("image/SLIME.png");
+
+    lastActionName = "";
 }
 
 Slime::~Slime()
 {
-
 }
 
 //void Slime::Update()
@@ -22,7 +24,6 @@ Slime::~Slime()
 
 void Slime::Draw(int x, int y)
 {
-    //DrawRotaGraph(500,300,0.5,0.0,slimage,true);
     DrawExtendGraph(x, y, x + 256, y + 256, slimage, true);
 }
 
@@ -34,12 +35,24 @@ int Slime::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名を保存
+        lastActionName = "たいあたり";
+
         return Attack;
     }
     else
     {
+        // スキル名を保存
+        lastActionName = "スライムボール";
+
         return Skill;
     }
+}
+
+// 最後に使った技名
+std::string Slime::GetLastActionName() const
+{
+    return lastActionName;
 }
 
 int Slime::GetHP() const
