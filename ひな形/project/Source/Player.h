@@ -51,8 +51,38 @@ public:
     // ふっかつのじゅもん
     bool resurrect();
 
+    // 攻撃力アップ
+    void AddAttack(int value);
+
+    // 最大HPアップ
+    void AddMaxHp(int value);
+
+    // HP全回復
+    void FullHeal();
+
+    // HPを指定量回復
+    void Heal(int value);
+
+    // 最大MPアップ
+    void AddMp(int value);
+
+    // 最大MP取得
+    int getMaxMp() const;
+
+    // MP回復
+    void RecoverMp(int value);
+
+    // 新しいスキルを覚える
+    void LearnNewSkill();
+
     // ダメージを受ける
     void takeDamage(int damage);
+
+    // 攻撃力取得
+    int getAttack() const;
+
+    // スキル威力取得
+    int getSkillPower() const;
 };
 
 #endif

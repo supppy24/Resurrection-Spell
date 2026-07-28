@@ -19,6 +19,9 @@ public:
 
 private:
 
+    // 報酬画面画像
+    int rewardImage;
+
     // プレイヤー
     Player player;
 
@@ -34,10 +37,6 @@ private:
     // コマンド画像
     int kImage;
 
-    // 敵出現メッセージ
-    bool newEnemyMessage;
-    int messageTimer;
-
     // ゲーム終了
     bool isGameOver;
 
@@ -50,6 +49,20 @@ private:
     bool oldKey3;
     bool oldKey4;
 
+    //------------------------
+    // ゲーム状態
+    //------------------------
+    enum class GameState
+    {
+        Battle,
+        Reward
+    };
+
+    GameState gameState;
+
+    // 報酬画面に入った直後か
+    bool rewardWaitRelease;
+
     // バトルログ
     std::vector<std::string> battleLog;
 
@@ -58,4 +71,7 @@ private:
 
     // ステージ読み込み
     void LoadStage(int stage);
+
+    // 報酬適用
+    void ApplyReward(int choice);
 };

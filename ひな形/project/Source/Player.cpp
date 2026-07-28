@@ -111,3 +111,73 @@ void Player::takeDamage(int damage)
         hp = 0;
     }
 }
+
+// 攻撃力アップ
+void Player::AddAttack(int value)
+{
+    attackPower += value;
+}
+
+// 最大HPアップ
+void Player::AddMaxHp(int value)
+{
+    maxHp += value;
+
+    // 増えた分だけ現在HPも増やす
+    hp += value;
+}
+
+// 最大MP取得
+int Player::getMaxMp() const
+{
+    return mp;
+}
+
+// HP全回復
+void Player::FullHeal()
+{
+    hp = maxHp;
+}
+
+// 新しいスキルを覚える（仮実装）
+void Player::LearnNewSkill()
+{
+    // とりあえずスキル威力を強化
+    skillPower += 5;
+}
+
+// 攻撃力取得
+int Player::getAttack() const
+{
+    return attackPower;
+}
+
+// スキル威力取得
+int Player::getSkillPower() const
+{
+    return skillPower;
+}
+
+// 最大MPアップ
+void Player::AddMp(int value)
+{
+    mp += value;
+}
+
+// MP回復
+void Player::RecoverMp(int value)
+{
+    mp += value;
+}
+
+// HPを指定量回復
+void Player::Heal(int value)
+{
+    hp += value;
+
+    // 最大HPを超えないようにする
+    if (hp > maxHp)
+    {
+        hp = maxHp;
+    }
+}
