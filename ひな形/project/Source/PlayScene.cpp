@@ -10,6 +10,7 @@
 PlayScene::PlayScene()
 {
     kImage = LoadGraph("image/Komando.jpg");
+    rewardImage = LoadGraph("image/Reward.png");
 
     srand((unsigned int)time(nullptr));
 
@@ -21,24 +22,29 @@ PlayScene::PlayScene()
     oldKey3 = false;
     oldKey4 = false;
 
+    // ゲーム状態
+    gameState = GameState::Battle;
+
+    // 入力待ち
+    rewardWaitRelease = false;
+
     // ステージ番号
     currentStage = 0;
 
     // ステージ設定
     stages =
     {
-        {1},        // スライム
-        {2},        // ゴブリン
-        {3},        // ドラゴン
-        {1,2},      // スライム＋ゴブリン
-        {4},        // ミミック
-        {5,6},      // ゴースト＋ゴーレム
-        {7},        // 魔女
-        {8},        // 魔王
-        {9,10}      // メデューサ＋スカル
+        {1},
+        {2},
+        {3},
+        {1,2},
+        {4},
+        {5,6},
+        {7},
+        {8},
+        {9,10}
     };
 
-    // 最初のステージ
     LoadStage(currentStage);
 
     battleLog.clear();
@@ -72,8 +78,42 @@ void PlayScene::Update()
     }
 
     //------------------------
-// プレイヤーターン
-//------------------------
+    // 報酬画面
+    //------------------------
+    if (gameState == GameState::Reward)
+    {
+        // キーが離されるまで待つ
+        if (rewardWaitRelease)
+        {
+            if (!CheckHitKey(KEY_INPUT_1) &&
+                !CheckHitKey(KEY_INPUT_2) &&
+                !CheckHitKey(KEY_INPUT_3))
+            {
+                rewardWaitRelease = false;
+            }
+
+            return;
+        }
+
+        if (CheckHitKey(KEY_INPUT_1))
+        {
+            ApplyReward(1);
+        }
+        else if (CheckHitKey(KEY_INPUT_2))
+        {
+            ApplyReward(2);
+        }
+        else if (CheckHitKey(KEY_INPUT_3))
+        {
+            ApplyReward(3);
+        }
+
+        return;
+    }
+
+    //------------------------
+ // プレイヤーターン
+ //------------------------
     if (isPlayerTurn)
     {
         //--------------------------
@@ -110,17 +150,22 @@ void PlayScene::Update()
         {
             if (!enemies.empty())
             {
-                player.skill(enemies[0]);
-
-                AddLog("スキルをつかった！");
-
-                if (enemies[0].isDead())
+                if (player.skill(enemies[0]))
                 {
-                    AddLog(enemies[0].getName() + "を倒した！");
-                    enemies.erase(enemies.begin());
-                }
+                    AddLog("スキルをつかった！");
 
-                isPlayerTurn = false;
+                    if (enemies[0].isDead())
+                    {
+                        AddLog(enemies[0].getName() + "を倒した！");
+                        enemies.erase(enemies.begin());
+                    }
+
+                    isPlayerTurn = false;
+                }
+                else
+                {
+                    AddLog("MPが足りない！");
+                }
             }
         }
 
@@ -149,19 +194,23 @@ void PlayScene::Update()
 
         if (key4 && !oldKey4)
         {
-            player.resurrect();
-
-            AddLog("ふっかつのじゅもんを となえた！");
-
-            isPlayerTurn = false;
+            if (player.resurrect())
+            {
+                AddLog("ふっかつのじゅもんを となえた！");
+                isPlayerTurn = false;
+            }
+            else
+            {
+                AddLog("ふっかつのじゅもんは もう使えない！");
+            }
         }
 
         oldKey4 = key4;
     }
 
     //------------------------
-// 敵ターン
-//------------------------
+    // 敵ターン
+    //------------------------
     else
     {
         for (auto& enemy : enemies)
@@ -170,7 +219,6 @@ void PlayScene::Update()
 
             player.takeDamage(damage);
 
-            // 技名を表示
             AddLog(enemy.getName() + "の" +
                 enemy.getLastActionName() + "！");
         }
@@ -185,129 +233,85 @@ void PlayScene::Update()
     }
 
     //------------------------
-    // 全滅したら次のステージ
+    // 全滅したら報酬画面へ
     //------------------------
     if (enemies.empty())
     {
-        currentStage++;
+        gameState = GameState::Reward;
+        isPlayerTurn = false;
 
-        if (currentStage < stages.size())
-        {
-            LoadStage(currentStage);
+        // キーを離すまで待つ
+        rewardWaitRelease = true;
 
-            AddLog("新しい敵が現れた！");
-        }
-        else
-        {
-            AddLog("ゲームクリア！");
-            isGameOver = true;
-        }
+        AddLog("報酬を選択してください");
+
+        return;
     }
 }
 
 void PlayScene::Draw()
 {
+    //------------------------
+    // 報酬画面
+    //------------------------
+    if (gameState == GameState::Reward)
+    {
+        // Reward.png を全画面表示
+        DrawExtendGraph(0, 0, 1280, 720, rewardImage, TRUE);
+
+        return;
+    }
+
     int color = GetColor(255, 255, 255);
 
     DrawFormatString(1000, 600, color,
-        "Player HP : %d",
-        player.getHp());
+        "Player HP : %d / %d",
+        player.getHp(),
+        player.getMaxHp());
 
     DrawFormatString(1000, 630, color,
-        "Player MP : %d",
-        player.getMp());
+        "Player MP : %d / %d",
+        player.getMp(),
+        player.getMaxMp());
 
+    DrawFormatString(1000, 660, color,
+        "ATK : %d",
+        player.getAttack());
 
-    // コマンド画像
-    DrawGraph(
-        0,
-        350,
-        kImage,
-        true);
+    DrawFormatString(1000, 690, color,
+        "SKILL : %d",
+        player.getSkillPower());
 
+    DrawGraph(0, 350, kImage, true);
 
-    //--------------------------------------------------
-    // 敵表示
-    //--------------------------------------------------
-    int enemyCount = enemies.size();
-
-    for (int i = 0; i < enemyCount; i++)
+    // 敵描画
+    for (int i = 0; i < enemies.size(); i++)
     {
-        int x = 300;
-        int y = 200;
+        enemies[i].Draw(300 + i * 300, 50);
 
-        switch (enemyCount)
-        {
-        case 1:
-            // 1体なら中央
-            x = 300;
-            y = 50;
-            break;
-
-        case 2:
-            // 左右
-            x = (i == 0) ? 300 : 830;
-            y = 50;
-            break;
-
-        case 3:
-            // 3体
-            if (i == 0) x = 150;
-            if (i == 1) x = 340;
-            if (i == 2) x = 680;
-
-            y = 0;
-            break;
-
-        default:
-            x = 220 + i * 220;
-            break;
-        }
-
-
-        // 敵画像
-        enemies[i].Draw(x, y);
-
-
-        // 名前
-        DrawFormatString(
-            x + 90,
-            y + 238,
-            color,
+        DrawFormatString(390 + i * 300, 288, color,
             "%s",
             enemies[i].getName().c_str());
 
-
-        // HP
-        DrawFormatString(
-            x + 90,
-            y + 258,
-            color,
+        DrawFormatString(390 + i * 300, 308, color,
             "HP : %d",
             enemies[i].getHp());
     }
 
-
-    //--------------------------------------------------
-    // バトルログ
-    //--------------------------------------------------
-    DrawString(
-        1000,
-        350,
+    // ログ
+    DrawString(1000, 350,
         "==== Battle Log ====",
         GetColor(255, 255, 0));
 
-
     for (int i = 0; i < battleLog.size(); i++)
     {
-        DrawString(
-            1000,
+        DrawString(1000,
             380 + i * 25,
             battleLog[i].c_str(),
             GetColor(255, 255, 255));
     }
 }
-// ログ追加
+
 void PlayScene::AddLog(const std::string& text)
 {
     battleLog.push_back(text);
@@ -315,5 +319,76 @@ void PlayScene::AddLog(const std::string& text)
     if (battleLog.size() > 6)
     {
         battleLog.erase(battleLog.begin());
+    }
+}
+
+//------------------------
+// 報酬適用
+//------------------------
+void PlayScene::ApplyReward(int choice)
+{
+    switch (choice)
+    {
+        //------------------------
+        // ① 基礎ステータスアップ
+        //------------------------
+    case 1:
+    {
+        player.AddAttack(2);
+        player.AddMaxHp(10);
+        player.AddMp(2);
+
+        AddLog("攻撃力が 2 上がった！");
+        AddLog("最大HPが 10 上がった！");
+        AddLog("MPが 2 上がった！");
+
+        break;
+    }
+
+    //------------------------
+    // ② スキル威力アップ
+    //------------------------
+    case 2:
+    {
+        player.LearnNewSkill();
+
+        AddLog("スキルの威力が上がった！");
+
+        break;
+    }
+
+    //------------------------
+    // ③ HP・MP回復
+    //------------------------
+    case 3:
+    {
+        player.Heal(10);
+        player.RecoverMp(7);
+
+        AddLog("HPが 10 回復した！");
+        AddLog("MPが 7 回復した！");
+
+        break;
+    }
+    }
+
+    //------------------------
+    // 次のステージへ
+    //------------------------
+    currentStage++;
+
+    if (currentStage < stages.size())
+    {
+        LoadStage(currentStage);
+
+        AddLog("新しい敵が現れた！");
+
+        gameState = GameState::Battle;
+        isPlayerTurn = true;
+    }
+    else
+    {
+        AddLog("ゲームクリア！");
+        isGameOver = true;
     }
 }
