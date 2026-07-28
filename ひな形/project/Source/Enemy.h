@@ -55,6 +55,9 @@ public:
     // “G‚Ìs“®
     int act();
 
+    // ÅŒã‚Ég‚Á‚½‹Z–¼
+    std::string getLastActionName() const;
+
 
     // €–S”»’è
     bool isDead() const;

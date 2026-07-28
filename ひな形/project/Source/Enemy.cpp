@@ -139,7 +139,7 @@ void Enemy::Draw(int x, int y)
 
     case 2:
 
-        goblin.Draw();
+        goblin.Draw(x,y);
 
         break;
 
@@ -323,7 +323,47 @@ int Enemy::act()
     return 0;
 }
 
+//--------------------------------
+// ÅŒã‚Ég‚Á‚½‹Z–¼
+//--------------------------------
+std::string Enemy::getLastActionName() const
+{
+    switch (enemyType)
+    {
+    case 1:
+        return slime.GetLastActionName();
 
+    case 2:
+        return goblin.GetLastActionName();
+
+        // ‚Ü‚¾–¢‘Î‰‚Ì“G
+    case 3:
+        return "UŒ‚";
+
+    case 4:
+        return "UŒ‚";
+
+    case 5:
+        return "UŒ‚";
+
+    case 6:
+        return "UŒ‚";
+
+    case 7:
+        return "UŒ‚";
+
+    case 8:
+        return "UŒ‚";
+
+    case 9:
+        return "UŒ‚";
+
+    case 10:
+        return "UŒ‚";
+    }
+
+    return "UŒ‚";
+}
 
 //--------------------------------
 // €–S”»’è

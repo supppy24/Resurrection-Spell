@@ -160,8 +160,8 @@ void PlayScene::Update()
     }
 
     //------------------------
-    // 敵ターン
-    //------------------------
+// 敵ターン
+//------------------------
     else
     {
         for (auto& enemy : enemies)
@@ -170,7 +170,9 @@ void PlayScene::Update()
 
             player.takeDamage(damage);
 
-            AddLog(enemy.getName() + "の攻撃！");
+            // 技名を表示
+            AddLog(enemy.getName() + "の" +
+                enemy.getLastActionName() + "！");
         }
 
         if (player.isDead())
