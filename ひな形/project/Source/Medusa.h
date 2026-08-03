@@ -9,10 +9,13 @@ public:
     ~Medusa();
 
     //void Update();
-    void Draw();
+    void Draw(int x, int y);
 
     // メドゥーサの行動
     int Act();
+
+    // 最後に使った技名を取得
+    std::string GetLastActionName() const;
 
     int GetHP() const;
     void TakeDamage(int damage);
@@ -24,4 +27,7 @@ private:
     int Skill;
 
     int medimage;
+
+    // 最後に使った技名
+    std::string lastActionName;
 };

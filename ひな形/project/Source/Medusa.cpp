@@ -4,9 +4,9 @@
 
 Medusa::Medusa()
 {
-    HP = 20;
-    Attack = 2;
-    Skill = 5;
+    HP = 200;
+    Attack = 10;
+    Skill = 25;
 
     medimage = LoadGraph("image/MEDUSA.png");
 }
@@ -21,9 +21,9 @@ Medusa::~Medusa()
 //
 //}
 
-void Medusa::Draw()
+void Medusa::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, medimage, true);
 }
 
 // 行動
@@ -34,12 +34,24 @@ int Medusa::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名を保存
+        lastActionName = "ヘビのしっぽ";
+
         return Attack;
     }
     else
     {
+        // スキル名を保存
+        lastActionName = "石化ビーム";
+
         return Skill;
     }
+}
+
+// 最後に使った技名
+std::string Medusa::GetLastActionName() const
+{
+    return lastActionName;
 }
 
 int Medusa::GetHP() const

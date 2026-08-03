@@ -4,9 +4,9 @@
 
 Skall::Skall()
 {
-    HP = 20;
-    Attack = 2;
-    Skill = 5;
+    HP = 25;
+    Attack = 10;
+    Skill = 20;
 
     skaimage = LoadGraph("image/SKALL.png");
 }
@@ -21,9 +21,9 @@ Skall::~Skall()
 //
 //}
 
-void Skall::Draw()
+void Skall::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, skaimage, true);
 }
 
 // 行動
@@ -34,13 +34,26 @@ int Skall::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名を保存
+        lastActionName = "ボーンアタック";
+
         return Attack;
     }
     else
     {
+        // スキル名を保存
+        lastActionName = "骨投げ";
+
         return Skill;
     }
 }
+
+// 最後に使った技名
+std::string Skall::GetLastActionName() const
+{
+    return lastActionName;
+}
+
 
 int Skall::GetHP() const
 {

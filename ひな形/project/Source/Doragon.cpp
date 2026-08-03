@@ -4,9 +4,9 @@
 
 Doragon::Doragon()
 {
-    HP = 20;
-    Attack = 2;
-    Skill = 5;
+    HP = 300;
+    Attack = 20;
+    Skill = 50;
 
     doraimage = LoadGraph("image/DORAGON.png");
 }
@@ -21,9 +21,9 @@ Doragon::~Doragon()
 //
 //}
 
-void Doragon::Draw()
+void Doragon::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, doraimage, true);
 }
 
 // 行動
@@ -34,12 +34,24 @@ int Doragon::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名を保存
+        lastActionName = "火球ブレス";
+
         return Attack;
     }
     else
     {
+        // スキル名を保存
+        lastActionName = "滅却";
+
         return Skill;
     }
+}
+
+// 最後に使った技名
+std::string Doragon::GetLastActionName() const
+{
+    return lastActionName;
 }
 
 int Doragon::GetHP() const
