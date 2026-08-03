@@ -4,9 +4,9 @@
 
 Maou::Maou()
 {
-    HP = 20;
-    Attack = 2;
-    Skill = 5;
+    HP = 500;
+    Attack = 20;
+    Skill = 50;
 
     maoimage = LoadGraph("image/MAOU.png");
 }
@@ -21,9 +21,9 @@ Maou::~Maou()
 //
 //}
 
-void Maou::Draw()
+void Maou::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, maoimage, true);
 }
 
 // s“®
@@ -34,13 +34,26 @@ int Maou::Act()
 
     if (action == 0)
     {
+        // ’ÊíUŒ‚–¼‚ğ•Û‘¶
+        lastActionName = "½•‚Ì‰Š";
+
         return Attack;
     }
     else
     {
+        // ƒXƒLƒ‹–¼‚ğ•Û‘¶
+        lastActionName = "ˆÅ‚Ì”g“®";
+
         return Skill;
     }
 }
+
+// ÅŒã‚Ég‚Á‚½‹Z–¼
+std::string Maou::GetLastActionName() const
+{
+    return lastActionName;
+}
+
 
 int Maou::GetHP() const
 {

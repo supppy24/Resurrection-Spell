@@ -146,56 +146,56 @@ void Enemy::Draw(int x, int y)
 
     case 3:
 
-        doragon.Draw();
+        doragon.Draw(x,y);
 
         break;
 
 
     case 4:
 
-        mimick.Draw();
+        mimick.Draw(x,y);
 
         break;
 
 
     case 5:
 
-        ghost.Draw();
+        ghost.Draw(x,y);
 
         break;
 
 
     case 6:
 
-        gorem.Draw();
+        gorem.Draw(x,y);
 
         break;
 
 
     case 7:
 
-        majyo.Draw();
+        majyo.Draw(x,y);
 
         break;
 
 
     case 8:
 
-        maou.Draw();
+        maou.Draw(x,y);
 
         break;
 
 
     case 9:
 
-        medusa.Draw();
+        medusa.Draw(x,y);
 
         break;
 
 
     case 10:
 
-        skall.Draw();
+        skall.Draw(x,y);
 
         break;
 
@@ -336,30 +336,29 @@ std::string Enemy::getLastActionName() const
     case 2:
         return goblin.GetLastActionName();
 
-        // ‚Ü‚¾–¢‘Î‰‚Ì“G
     case 3:
-        return "UŒ‚";
+        return doragon.GetLastActionName();
 
     case 4:
-        return "UŒ‚";
+        return mimick.GetLastActionName();
 
     case 5:
-        return "UŒ‚";
+        return ghost.GetLastActionName();
 
     case 6:
-        return "UŒ‚";
+        return gorem.GetLastActionName();
 
     case 7:
-        return "UŒ‚";
+        return majyo.GetLastActionName();
 
     case 8:
-        return "UŒ‚";
+        return maou.GetLastActionName();
 
     case 9:
-        return "UŒ‚";
+        return medusa.GetLastActionName();
 
     case 10:
-        return "UŒ‚";
+        return skall.GetLastActionName();
     }
 
     return "UŒ‚";

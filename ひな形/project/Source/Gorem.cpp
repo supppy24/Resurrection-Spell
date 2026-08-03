@@ -4,9 +4,9 @@
 
 Gorem::Gorem()
 {
-    HP = 20;
-    Attack = 2;
-    Skill = 5;
+    HP = 80;
+    Attack = 3;
+    Skill = 15;
 
     gorimage = LoadGraph("image/GOREM.png");
 }
@@ -21,9 +21,9 @@ Gorem::~Gorem()
 //
 //}
 
-void Gorem::Draw()
+void Gorem::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, gorimage, true);
 }
 
 // 行動
@@ -34,12 +34,24 @@ int Gorem::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名を保存
+        lastActionName = "殴る";
+
         return Attack;
     }
     else
     {
+        // スキル名を保存
+        lastActionName = "ふみつけ";
+
         return Skill;
     }
+}
+
+// 最後に使った技名
+std::string Gorem::GetLastActionName() const
+{
+    return lastActionName;
 }
 
 int Gorem::GetHP() const

@@ -4,9 +4,9 @@
 
 Majyo::Majyo()
 {
-    HP = 20;
-    Attack = 2;
-    Skill = 5;
+    HP = 100;
+    Attack = 3;
+    Skill = 45;
 
     majimage = LoadGraph("image/MAJYO.png");
 }
@@ -21,9 +21,9 @@ Majyo::~Majyo()
 //
 //}
 
-void Majyo::Draw()
+void Majyo::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, majimage, true);
 }
 
 // 行動
@@ -34,12 +34,24 @@ int Majyo::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名を保存
+        lastActionName = "ファイア";
+
         return Attack;
     }
     else
     {
+        // スキル名を保存
+        lastActionName = "禁断の魔法";
+
         return Skill;
     }
+}
+
+// 最後に使った技名
+std::string Majyo::GetLastActionName() const
+{
+    return lastActionName;
 }
 
 int Majyo::GetHP() const

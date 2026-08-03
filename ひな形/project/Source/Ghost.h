@@ -9,10 +9,13 @@ public:
     ~Ghost();
 
     //void Update();
-    void Draw();
+    void Draw(int x, int y);
 
     // ゴーストの行動
     int Act();
+
+    // 最後に使った技名を取得
+    std::string GetLastActionName() const;
 
     int GetHP() const;
     void TakeDamage(int damage);
@@ -24,4 +27,7 @@ private:
     int Skill;
 
     int ghoimage;
+
+    // 最後に使った技名
+    std::string lastActionName;
 };

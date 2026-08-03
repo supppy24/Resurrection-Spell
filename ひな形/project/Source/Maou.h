@@ -9,10 +9,13 @@ public:
     ~Maou();
 
     //void Update();
-    void Draw();
+    void Draw(int x, int y);
 
     // –‚‰¤‚Ìs“®
     int Act();
+
+    // ÅŒã‚Ég‚Á‚½‹Z–¼‚ğæ“¾
+    std::string GetLastActionName() const;
 
     int GetHP() const;
     void TakeDamage(int damage);
@@ -24,4 +27,6 @@ private:
     int Skill;
 
     int maoimage;
+    // ÅŒã‚Ég‚Á‚½‹Z–¼
+    std::string lastActionName;
 };

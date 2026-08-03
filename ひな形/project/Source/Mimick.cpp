@@ -4,9 +4,9 @@
 
 Mimick::Mimick()
 {
-    HP = 20;
-    Attack = 2;
-    Skill = 5;
+    HP = 10;
+    Attack = 0;
+    Skill = 20;
 
     mimiimage = LoadGraph("image/MIMICK.png");
 }
@@ -21,9 +21,9 @@ Mimick::~Mimick()
 //
 //}
 
-void Mimick::Draw()
+void Mimick::Draw(int x, int y)
 {
-    DrawGraph(500, 500, 0, true);
+    DrawExtendGraph(x, y, x + 256, y + 256, mimiimage, true);
 }
 
 // 行動
@@ -34,12 +34,24 @@ int Mimick::Act()
 
     if (action == 0)
     {
+        // 通常攻撃名を保存
+        lastActionName = "こちらを見て笑っている";
+
         return Attack;
     }
     else
     {
+        // スキル名を保存
+        lastActionName = "べろべろばぁ";
+
         return Skill;
     }
+}
+
+// 最後に使った技名
+std::string Mimick::GetLastActionName() const
+{
+    return lastActionName;
 }
 
 int Mimick::GetHP() const
