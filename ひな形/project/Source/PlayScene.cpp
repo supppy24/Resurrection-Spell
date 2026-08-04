@@ -49,6 +49,12 @@ PlayScene::PlayScene()
 
     battleLog.clear();
     AddLog("敵が現れた！");
+
+    // 経過ターン
+    turnCount = 1;
+
+    // 現在の階層
+    floorNumber = 1;
 }
 
 PlayScene::~PlayScene()
@@ -229,6 +235,9 @@ void PlayScene::Update()
             isGameOver = true;
         }
 
+        // 敵ターン終了 → 次のターンへ
+        turnCount++;
+
         isPlayerTurn = true;
     }
 
@@ -281,6 +290,16 @@ void PlayScene::Draw()
     DrawFormatString(1000, 690, color,
         "SKILL : %d",
         player.getSkillPower());
+
+    // 現在の階層
+    DrawFormatString(1000, 40, color,
+        "Floor : %d F",
+        floorNumber);
+
+    // 経過ターン
+    DrawFormatString(1000, 70, color,
+        "Turn  : %d",
+        turnCount);
 
     DrawGraph(0, 350, kImage, true);
 
@@ -379,8 +398,12 @@ void PlayScene::ApplyReward(int choice)
 
     if (currentStage < stages.size())
     {
+        // 階層更新（敵撃破後に次階層へ）
+        floorNumber = currentStage + 1;
+
         LoadStage(currentStage);
 
+        AddLog(std::to_string(floorNumber) + "階に到達した！");
         AddLog("新しい敵が現れた！");
 
         gameState = GameState::Battle;

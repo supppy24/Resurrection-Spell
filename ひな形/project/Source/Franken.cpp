@@ -1,0 +1,76 @@
+#include "Franken.h"
+#include "DxLib.h"
+#include <cstdlib>
+
+Franken::Franken()
+{
+    HP = 120;
+    Attack = 20;
+    Skill = 25;
+
+    frimage = LoadGraph("image/FRANKEN.png");
+
+    lastActionName = "";
+}
+
+Franken::~Franken()
+{
+}
+
+//void Franken::Update()
+//{
+//
+//}
+
+void Franken::Draw(int x, int y)
+{
+    DrawExtendGraph(x, y, x + 256, y + 256, frimage, true);
+}
+
+// 行動
+int Franken::Act()
+{
+    // 0なら通常攻撃、1ならスキル
+    int action = rand() % 2;
+
+    if (action == 0)
+    {
+        // 通常攻撃名を保存
+        lastActionName = "怪力パンチ";
+
+        return Attack;
+    }
+    else
+    {
+        // スキル名を保存
+        lastActionName = "大暴れ";
+
+        return Skill;
+    }
+}
+
+// 最後に使った技名
+std::string Franken::GetLastActionName() const
+{
+    return lastActionName;
+}
+
+int Franken::GetHP() const
+{
+    return HP;
+}
+
+void Franken::TakeDamage(int damage)
+{
+    HP -= damage;
+
+    if (HP < 0)
+    {
+        HP = 0;
+    }
+}
+
+bool Franken::IsDead() const
+{
+    return HP <= 0;
+}

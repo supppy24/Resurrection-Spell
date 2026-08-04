@@ -12,6 +12,15 @@
 #include "Maou.h"
 #include "Medusa.h"
 #include "Skall.h"
+#include "Anjel.h"
+#include "Darknight.h"
+#include "Devil.h"
+#include "Eiyuu.h"
+#include "Franken.h"
+#include "Gargoyle.h"
+#include "Flower.h"
+#include "Minotauros.h"
+#include "Shinigami.h"
 
 
 class Enemy
@@ -33,7 +42,15 @@ private:
     Maou maou;
     Medusa medusa;
     Skall skall;
-
+    Anjel anjel;
+    Darknight darknight;
+    Devil devil;
+    Eiyuu eiyuu;
+    Franken franken;
+    Gargoyle gargoyle;
+    Flower flower;
+    Minotauros mino;
+    Shinigami shinigami;
 
 public:
 
