@@ -1,0 +1,34 @@
+#pragma once
+
+#include "EnemyBase.h"
+#include <string>
+
+class Anjel
+{
+public:
+    Anjel();
+    ~Anjel();
+
+    //void Update();
+    void Draw(int x, int y);
+
+    // エンジェルの行動
+    int Act();
+
+    // 最後に使った技名を取得
+    std::string GetLastActionName() const;
+
+    int GetHP() const;
+    void TakeDamage(int damage);
+    bool IsDead() const;
+
+private:
+    int HP;
+    int Attack;
+    int Skill;
+
+    int animage;
+
+    // 最後に使った技名
+    std::string lastActionName;
+};

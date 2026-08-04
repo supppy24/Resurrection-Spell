@@ -57,6 +57,41 @@ int Enemy::getHp() const
     case 10:
         return skall.GetHP();
 
+
+    case11:
+        return anjel.GetHP();
+
+
+    case12:
+        return darknight.GetHP();
+
+
+    case13:
+        return devil.GetHP();
+
+
+    case14:
+        return eiyuu.GetHP();
+
+
+    case15:
+        return franken.GetHP();
+
+
+    case16:
+        return gargoyle.GetHP();
+
+
+    case17:
+        return flower.GetHP();
+
+
+    case18:
+        return mino.GetHP();
+
+
+    case19:
+        return shinigami.GetHP();
     }
 
 
@@ -113,6 +148,41 @@ std::string Enemy::getName() const
     case 10:
         return "ƒXƒJƒ‹";
 
+
+    case11:
+        return "ƒGƒ“ƒWƒFƒ‹";
+
+
+    case12:
+        return "•‹Rm";
+
+
+    case13:
+        return "ˆ«–‚";
+
+
+    case14:
+        return "‹U‚è‚Ì‰p—Y";
+
+
+    case15:
+        return "ƒtƒ‰ƒ“ƒPƒ“";
+
+
+    case16:
+        return "ƒK[ƒSƒCƒ‹";
+
+
+    case17:
+        return "‰»•¨‰Ô";
+
+
+    case18:
+        return "ƒ~ƒmƒ^ƒEƒƒX";
+
+
+    case19:
+        return "€_";
     }
 
 
@@ -199,6 +269,68 @@ void Enemy::Draw(int x, int y)
 
         break;
 
+
+    case 11:
+
+        anjel.Draw(x, y);
+
+        break;
+
+
+    case 12:
+
+        darknight.Draw(x, y);
+
+        break;
+
+
+    case 13:
+
+        devil.Draw(x, y);
+
+        break;
+
+
+    case 14:
+
+        eiyuu.Draw(x, y);
+
+        break;
+
+
+    case 15:
+
+        franken.Draw(x, y);
+
+        break;
+
+
+    case 16:
+
+        gargoyle.Draw(x, y);
+
+        break;
+
+
+    case 17:
+
+        flower.Draw(x, y);
+
+        break;
+
+
+    case 18:
+
+        mino.Draw(x, y);
+
+        break;
+
+
+    case 19:
+
+        shinigami.Draw(x, y);
+
+        break;
     }
 
 }
@@ -263,6 +395,50 @@ void Enemy::takeDamage(int damage)
         skall.TakeDamage(damage);
         break;
 
+
+    case 11:
+        anjel.TakeDamage(damage);
+        break;
+
+
+    case 12:
+        darknight.TakeDamage(damage);
+        break;
+
+
+    case 13:
+        devil.TakeDamage(damage);
+        break;
+
+
+    case 14:
+        eiyuu.TakeDamage(damage);
+        break;
+
+
+    case 15:
+        franken.TakeDamage(damage);
+        break;
+
+
+    case 16:
+        gargoyle.TakeDamage(damage);
+        break;
+
+
+    case 17:
+        flower.TakeDamage(damage);
+        break;
+
+
+    case 18:
+        mino.TakeDamage(damage);
+        break;
+
+
+    case 19:
+        shinigami.TakeDamage(damage);
+        break;
     }
 
 }
@@ -317,6 +493,41 @@ int Enemy::act()
     case 10:
         return skall.Act();
 
+
+    case 11:
+        return anjel.Act();
+
+
+    case 12:
+        return darknight.Act();
+
+
+    case 13:
+        return devil.Act();
+
+
+    case 14:
+        return eiyuu.Act();
+
+
+    case 15:
+        return franken.Act();
+
+
+    case 16:
+        return gargoyle.Act();
+
+
+    case 17:
+        return flower.Act();
+
+
+    case 18:
+        return mino.Act();
+
+
+    case 19:
+        return shinigami.Act();
     }
 
 
@@ -359,6 +570,30 @@ std::string Enemy::getLastActionName() const
 
     case 10:
         return skall.GetLastActionName();
+
+    case 11:
+        return anjel.GetLastActionName();
+
+    case 12:
+        return darknight.GetLastActionName();
+
+    case 13:
+        return devil.GetLastActionName();
+
+    case 14:
+        return eiyuu.GetLastActionName();
+
+    case 15:
+        return franken.GetLastActionName();
+
+    case 16:
+        return gargoyle.GetLastActionName();
+
+    case 17:
+        return flower.GetLastActionName();
+
+    case 18:
+        return shinigami.GetLastActionName();
     }
 
     return "UŒ‚";

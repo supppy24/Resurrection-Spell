@@ -74,4 +74,10 @@ private:
 
     // 報酬適用
     void ApplyReward(int choice);
+
+    // 経過ターン数
+    int turnCount;
+
+    // 現在の階層（1階から表示用）
+    int floorNumber;
 };
