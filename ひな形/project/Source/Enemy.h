@@ -21,7 +21,9 @@
 #include "Flower.h"
 #include "Minotauros.h"
 #include "Shinigami.h"
-
+#include "Darkanjel.h"
+#include "Doragon2.h"
+#include "Doragon3.h"
 
 class Enemy
 {
@@ -51,6 +53,9 @@ private:
     Flower flower;
     Minotauros mino;
     Shinigami shinigami;
+    Darkanjel darkanjel;
+    Doragon2 doragon2;
+    Doragon3 doragon3;
 
 public:
 

@@ -4,9 +4,12 @@
 
 Darknight::Darknight()
 {
-    HP = 200;
+    maxHP = 200;
+    HP = maxHP;
     Attack = 10;
     Skill = 20;
+
+    turnCount = 0;
 
     dnimage = LoadGraph("image/DARKNIGHT.png");
 
@@ -30,6 +33,28 @@ void Darknight::Draw(int x, int y)
 // 行動
 int Darknight::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //３ターンごとに
+    if (turnCount % 3 == 0)
+    {
+        lastActionName = "黒炎";
+        return 50;
+    }
+
+
+    //HPが20%以下になったら
+    if (hpRate <= 20)
+    {
+        lastActionName = "終焉";
+        return 100;
+    }
+
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

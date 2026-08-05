@@ -4,7 +4,8 @@
 
 Doragon::Doragon()
 {
-    HP = 300;
+    maxHP = 300;
+    HP = maxHP;
     Attack = 20;
     Skill = 50;
 
@@ -29,6 +30,13 @@ void Doragon::Draw(int x, int y)
 // 行動
 int Doragon::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

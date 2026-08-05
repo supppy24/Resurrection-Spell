@@ -1,30 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\",
+  "WorkspaceRootPath": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\PlayScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\PlayScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Doragon2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Doragon2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Doragon3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon3.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Doragon3.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Doragon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Doragon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Anjel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Anjel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Anjel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Anjel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Maou.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Maou.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Maou.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{EFAFCEE4-F6EA-4651-BA3F-DC3176CDD3A8}|project.vcxproj|solutionrelative:Source\\Maou.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,81 +58,164 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Enemy.h",
-              "DocumentMoniker": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Enemy.h",
-              "RelativeDocumentMoniker": "Source\\Enemy.h",
-              "ToolTip": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Enemy.h",
-              "RelativeToolTip": "Source\\Enemy.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAGAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Anjel.h",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Anjel.h",
+              "RelativeDocumentMoniker": "Source\\Anjel.h",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Anjel.h",
+              "RelativeToolTip": "Source\\Anjel.h",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-23T03:21:01.662Z"
+              "WhenOpened": "2026-08-05T05:15:25.297Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Enemy.cpp",
-              "DocumentMoniker": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Enemy.cpp",
-              "RelativeDocumentMoniker": "Source\\Enemy.cpp",
-              "ToolTip": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Enemy.cpp",
-              "RelativeToolTip": "Source\\Enemy.cpp",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwCkAAAABAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Anjel.cpp",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Anjel.cpp",
+              "RelativeDocumentMoniker": "Source\\Anjel.cpp",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Anjel.cpp",
+              "RelativeToolTip": "Source\\Anjel.cpp",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-23T03:20:49.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Player.h",
-              "DocumentMoniker": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Player.h",
-              "RelativeDocumentMoniker": "Source\\Player.h",
-              "ToolTip": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Player.h",
-              "RelativeToolTip": "Source\\Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-23T03:20:14.481Z",
+              "WhenOpened": "2026-08-05T04:44:42.48Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Player.cpp",
-              "RelativeDocumentMoniker": "Source\\Player.cpp",
-              "ToolTip": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\Player.cpp",
-              "RelativeToolTip": "Source\\Player.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
+              "Title": "Enemy.h",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Enemy.h",
+              "RelativeDocumentMoniker": "Source\\Enemy.h",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Enemy.h",
+              "RelativeToolTip": "Source\\Enemy.h",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-05T05:59:54.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Enemy.cpp",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Enemy.cpp",
+              "RelativeDocumentMoniker": "Source\\Enemy.cpp",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Enemy.cpp",
+              "RelativeToolTip": "Source\\Enemy.cpp",
+              "ViewState": "AgIAAKACAAAAAAAAAAAgwKgCAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-23T03:20:00.695Z",
+              "WhenOpened": "2026-08-05T05:59:53.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Doragon3.h",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon3.h",
+              "RelativeDocumentMoniker": "Source\\Doragon3.h",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon3.h",
+              "RelativeToolTip": "Source\\Doragon3.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-05T05:49:12.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Doragon3.cpp",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon3.cpp",
+              "RelativeDocumentMoniker": "Source\\Doragon3.cpp",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon3.cpp",
+              "RelativeToolTip": "Source\\Doragon3.cpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-05T05:48:54.061Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "PlayScene.h",
-              "DocumentMoniker": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\PlayScene.h",
-              "RelativeDocumentMoniker": "Source\\PlayScene.h",
-              "ToolTip": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\PlayScene.h",
-              "RelativeToolTip": "Source\\PlayScene.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAQwBsAAAACAAAAAAAAAA==",
+              "Title": "Doragon2.h",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon2.h",
+              "RelativeDocumentMoniker": "Source\\Doragon2.h",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon2.h",
+              "RelativeToolTip": "Source\\Doragon2.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAB8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-23T03:10:16.078Z"
+              "WhenOpened": "2026-08-05T05:48:33.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Doragon.cpp",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon.cpp",
+              "RelativeDocumentMoniker": "Source\\Doragon.cpp",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon.cpp",
+              "RelativeToolTip": "Source\\Doragon.cpp",
+              "ViewState": "AgIAADsAAAAAAAAAAAAgwFIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-05T05:44:44.068Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PlayScene.cpp",
-              "DocumentMoniker": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\PlayScene.cpp",
-              "RelativeDocumentMoniker": "Source\\PlayScene.cpp",
-              "ToolTip": "D:\\mygame 0529\\\u3072\u306A\u5F62\\project\\Source\\PlayScene.cpp",
-              "RelativeToolTip": "Source\\PlayScene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMEAAAABAAAAAAAAAA==",
+              "Title": "Doragon2.cpp",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon2.cpp",
+              "RelativeDocumentMoniker": "Source\\Doragon2.cpp",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon2.cpp",
+              "RelativeToolTip": "Source\\Doragon2.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-23T03:10:14.493Z",
+              "WhenOpened": "2026-08-05T05:48:17.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Doragon.h",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon.h",
+              "RelativeDocumentMoniker": "Source\\Doragon.h",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Doragon.h",
+              "RelativeToolTip": "Source\\Doragon.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAgwCMAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-05T05:44:39.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Maou.cpp",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Maou.cpp",
+              "RelativeDocumentMoniker": "Source\\Maou.cpp",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Maou.cpp",
+              "RelativeToolTip": "Source\\Maou.cpp",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAADUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-08-05T04:44:58.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Maou.h",
+              "DocumentMoniker": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Maou.h",
+              "RelativeDocumentMoniker": "Source\\Maou.h",
+              "ToolTip": "C:\\Users\\81803\\Desktop\\mygame 0805\\\u3072\u306A\u5F62\\project\\Source\\Maou.h",
+              "RelativeToolTip": "Source\\Maou.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-08-05T04:44:57.693Z",
               "EditorCaption": ""
             }
           ]
