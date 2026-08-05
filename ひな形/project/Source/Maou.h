@@ -1,6 +1,6 @@
 #pragma once
 
-#include "EnemyBase.h"
+#include <string>
 
 class Maou
 {
@@ -8,25 +8,31 @@ public:
     Maou();
     ~Maou();
 
-    //void Update();
+    // 描画
     void Draw(int x, int y);
 
-    // 魔王の行動
+    // 行動
     int Act();
 
-    // 最後に使った技名を取得
+    // 最後に使った技名
     std::string GetLastActionName() const;
 
+    // HP関連
     int GetHP() const;
     void TakeDamage(int damage);
     bool IsDead() const;
 
 private:
     int HP;
-    int Attack;
-    int Skill;
+    int maxHP;
+
+    int Attack; // 通常攻撃力
+    int Skill;  // スキル攻撃力
+
+    int turnCount; // 行動ターン数
 
     int maoimage;
+
     // 最後に使った技名
     std::string lastActionName;
 };

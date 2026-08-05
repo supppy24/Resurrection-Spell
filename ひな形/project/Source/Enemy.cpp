@@ -92,6 +92,18 @@ int Enemy::getHp() const
 
     case19:
         return shinigami.GetHP();
+
+
+    case20:
+        return darkanjel.GetHP();
+
+
+    case 21:
+        return doragon2.GetHP();
+
+
+    case 22:
+        return doragon3.GetHP();
     }
 
 
@@ -183,6 +195,18 @@ std::string Enemy::getName() const
 
     case19:
         return "€_";
+
+
+    case20:
+        return "‘Â“Vg";
+
+
+    case 21:
+        return "ƒhƒ‰ƒSƒ“2";
+
+
+    case 22:
+        return "ƒhƒ‰ƒSƒ“3";
     }
 
 
@@ -331,6 +355,28 @@ void Enemy::Draw(int x, int y)
         shinigami.Draw(x, y);
 
         break;
+
+
+    case 20:
+
+        darkanjel.Draw(x, y);
+
+        break;
+
+
+    case 21:
+
+        doragon2.Draw(x, y);
+
+        break;
+
+
+
+    case 22:
+
+        doragon3.Draw(x, y);
+
+        break;
     }
 
 }
@@ -439,6 +485,21 @@ void Enemy::takeDamage(int damage)
     case 19:
         shinigami.TakeDamage(damage);
         break;
+
+
+    case 20:
+        darkanjel.TakeDamage(damage);
+        break;
+
+
+    case 21:
+        doragon2.TakeDamage(damage);
+        break;
+
+
+    case 22:
+        doragon3.TakeDamage(damage);
+        break;
     }
 
 }
@@ -528,6 +589,18 @@ int Enemy::act()
 
     case 19:
         return shinigami.Act();
+
+
+    case 20:
+        return darkanjel.Act();
+
+
+    case 21:
+        return doragon2.Act();
+
+
+    case 22:
+        return doragon3.Act();
     }
 
 
@@ -593,7 +666,19 @@ std::string Enemy::getLastActionName() const
         return flower.GetLastActionName();
 
     case 18:
+        return mino.GetLastActionName();
+
+    case 19:
         return shinigami.GetLastActionName();
+
+    case 20:
+        return darkanjel.GetLastActionName();
+
+    case 21:
+        return doragon2.GetLastActionName();
+
+    case 22:
+        return doragon3.GetLastActionName();
     }
 
     return "UŒ‚";
