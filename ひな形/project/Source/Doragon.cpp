@@ -9,7 +9,7 @@ Doragon::Doragon()
     Attack = 20;
     Skill = 50;
 
-    doraimage = LoadGraph("image/DORAGON.png");
+    doraimage = LoadGraph("image/REDDRAGON.png");
 }
 
 Doragon::~Doragon()
@@ -36,8 +36,40 @@ int Doragon::Act()
     // HP割合（%）
     int hpRate = HP * 100 / maxHP;
 
+    //--------------------------------
+    // 3ターンごとに必殺技
+    //--------------------------------
+    if (turnCount % 3 == 0)
+    {
+        lastActionName = "レッドフレイム";
+        return 80;
+    }
 
-    // 0なら通常攻撃、1ならスキル
+    //--------------------------------
+    // HP30%以下
+    //--------------------------------
+    if (hpRate <= 30)
+    {
+        int action = rand() % 3;
+
+        switch (action)
+        {
+        case 0:
+            lastActionName = "灼熱ブレス";
+            return 50;
+
+        case 1:
+            lastActionName = "紅蓮の伊吹";
+            return 80;
+
+        case 2:
+            lastActionName = "劫火";
+            return 100;
+        }
+    }
+
+
+    // 通常フェーズ
     int action = rand() % 2;
 
     if (action == 0)
@@ -50,7 +82,7 @@ int Doragon::Act()
     else
     {
         // スキル名を保存
-        lastActionName = "滅却";
+        lastActionName = "赤龍ノ咆哮";
 
         return Skill;
     }

@@ -9,7 +9,7 @@ Doragon3::Doragon3()
     Attack = 20;
     Skill = 50;
 
-    dora3image = LoadGraph("image/Doragon3.png");
+    dora3image = LoadGraph("image/SILVERDRAGON.png");
 }
 
 Doragon3::~Doragon3()
@@ -36,6 +36,38 @@ int Doragon3::Act()
     // HP割合（%）
     int hpRate = HP * 100 / maxHP;
 
+    //--------------------------------
+    // 3ターンごとに必殺技
+    //--------------------------------
+    if (turnCount % 3 == 0)
+    {
+        lastActionName = "シルバーフレイム";
+        return 80;
+    }
+
+    //--------------------------------
+    // HP30%以下
+    //--------------------------------
+    if (hpRate <= 30)
+    {
+        int action = rand() % 3;
+
+        switch (action)
+        {
+        case 0:
+            lastActionName = "銀翼ブレス";
+            return 50;
+
+        case 1:
+            lastActionName = "銀の伊吹";
+            return 80;
+
+        case 2:
+            lastActionName = "天雷";
+            return 100;
+        }
+    }
+
 
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
@@ -43,14 +75,14 @@ int Doragon3::Act()
     if (action == 0)
     {
         // 通常攻撃名を保存
-        lastActionName = "火球ブレス";
+        lastActionName = "シルバーブレス";
 
         return Attack;
     }
     else
     {
         // スキル名を保存
-        lastActionName = "滅却";
+        lastActionName = "銀龍ノ咆哮";
 
         return Skill;
     }

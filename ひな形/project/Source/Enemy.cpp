@@ -471,7 +471,6 @@ void Enemy::takeDamage(int damage)
         gargoyle.TakeDamage(damage);
         break;
 
-
     case 17:
         flower.TakeDamage(damage);
         break;
