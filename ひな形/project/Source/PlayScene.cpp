@@ -9,6 +9,7 @@
 
 PlayScene::PlayScene()
 {
+    haikei = LoadGraph("image/HAIKEI2.png");
     kImage = LoadGraph("image/Komando.jpg");
     rewardImage = LoadGraph("image/Reward.png");
 
@@ -34,15 +35,39 @@ PlayScene::PlayScene()
     // ÉXÉeÅ[ÉWê›íË
     stages =
     {
+        //5äKëwÇ≤Ç∆Ç…íÜÉ{ÉXóßÇøà íuÅA10äKëwÇ≤Ç∆Ç…ëÂÉ{ÉXóßÇøà íu
         {1},
         {2},
-        {3},
-        {1,2},
+        {10},
+        {5},
+        {18},//5
         {4},
-        {5,6},
-        {7},
+        {1,2},
+        {6},
+        {17},
+        {9},//10
+        {5},
+        {15},
+        {16},
+        {10,5},
+        {12},//15
+        {4},
+        {2,17},
+        {11},
+        {20},
+        {11,20},//20
+        {4},
+        {13},
+        {19},
+        {6,15},
+        {7},//25
+        {3},
+        {21},
+        {22},
         {8},
-        {9,10}
+        {14},//30
+
+
     };
 
     LoadStage(currentStage);
@@ -260,77 +285,491 @@ void PlayScene::Update()
 
 void PlayScene::Draw()
 {
-    //------------------------
+    //--------------------------------------------------
     // ïÒèVâÊñ 
-    //------------------------
+    //--------------------------------------------------
     if (gameState == GameState::Reward)
     {
-        // Reward.png ÇëSâÊñ ï\é¶
-        DrawExtendGraph(0, 0, 1280, 720, rewardImage, TRUE);
+        DrawExtendGraph(
+            0, 0,
+            1280, 720,
+            rewardImage,
+            TRUE
+        );
 
         return;
     }
 
-    int color = GetColor(255, 255, 255);
+    //--------------------------------------------------
+    // êF
+    //--------------------------------------------------
+    int white = GetColor(255, 255, 255);
+    int yellow = GetColor(255, 220, 80);
+    int gold = GetColor(180, 140, 60);
+    int darkPanel = GetColor(10, 15, 20);
 
-    DrawFormatString(1000, 600, color,
-        "Player HP : %d / %d",
-        player.getHp(),
-        player.getMaxHp());
+    //--------------------------------------------------
+    // á@ îwåi
+    //--------------------------------------------------
+    DrawExtendGraph(
+        0, 0,
+        1280, 720,
+        haikei,
+        TRUE
+    );
 
-    DrawFormatString(1000, 630, color,
-        "Player MP : %d / %d",
-        player.getMp(),
-        player.getMaxMp());
+    //--------------------------------------------------
+    // áA è„ïî Floor / Turn
+    //--------------------------------------------------
 
-    DrawFormatString(1000, 660, color,
-        "ATK : %d",
-        player.getAttack());
+    // îºìßñæÉpÉlÉã
+    SetDrawBlendMode(DX_BLENDMODE_ALPHA, 190);
 
-    DrawFormatString(1000, 690, color,
-        "SKILL : %d",
-        player.getSkillPower());
+    DrawBox(
+        1010, 20,
+        1255, 100,
+        darkPanel,
+        TRUE
+    );
 
-    // åªç›ÇÃäKëw
-    DrawFormatString(1000, 40, color,
+    SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
+
+    // òg
+    DrawBox(
+        1010, 20,
+        1255, 100,
+        gold,
+        FALSE
+    );
+
+    // Floor
+    DrawFormatString(
+        1030, 35,
+        white,
         "Floor : %d F",
-        floorNumber);
+        floorNumber
+    );
 
-    // åoâﬂÉ^Å[Éì
-    DrawFormatString(1000, 70, color,
+    // Turn
+    DrawFormatString(
+        1030, 65,
+        white,
         "Turn  : %d",
-        turnCount);
+        turnCount
+    );
 
-    DrawGraph(0, 350, kImage, true);
 
-    // ìGï`âÊ
+    //--------------------------------------------------
+    // áB ìG
+    //--------------------------------------------------
+
     for (int i = 0; i < enemies.size(); i++)
     {
-        enemies[i].Draw(300 + i * 300, 50);
+        // ìGÇÃà íu
+        int enemyX = 300 + i * 300;
+        int enemyY = 50;
 
-        DrawFormatString(390 + i * 300, 288, color,
+        enemies[i].Draw(enemyX, enemyY);
+
+        //--------------------------------------------------
+        // ìGèÓïÒÉpÉlÉã
+        //--------------------------------------------------
+
+        int panelX = enemyX + 80;
+        int panelY = 285;
+
+        SetDrawBlendMode(
+            DX_BLENDMODE_ALPHA,
+            200
+        );
+
+        DrawBox(
+            panelX,
+            panelY,
+            panelX + 180,
+            panelY + 75,
+            darkPanel,
+            TRUE
+        );
+
+        SetDrawBlendMode(
+            DX_BLENDMODE_NOBLEND,
+            0
+        );
+
+        // òg
+        DrawBox(
+            panelX,
+            panelY,
+            panelX + 180,
+            panelY + 75,
+            gold,
+            FALSE
+        );
+
+        // ìGñº
+        DrawFormatString(
+            panelX + 20,
+            panelY + 10,
+            white,
             "%s",
-            enemies[i].getName().c_str());
+            enemies[i].getName().c_str()
+        );
 
-        DrawFormatString(390 + i * 300, 308, color,
+        // HP
+        DrawFormatString(
+            panelX + 20,
+            panelY + 40,
+            white,
             "HP : %d",
-            enemies[i].getHp());
+            enemies[i].getHp()
+        );
     }
+
+
+    //--------------------------------------------------
+// áC â∫ïîUIÇÃîwåi
+//--------------------------------------------------
+
+    SetDrawBlendMode(
+        DX_BLENDMODE_ALPHA,
+        220
+    );
+
+    //--------------------------------
+    // COMMAND
+    //--------------------------------
+    DrawBox(
+        15, 390,
+        420, 700,
+        darkPanel,
+        TRUE
+    );
+
+    //--------------------------------
+    // PLAYER
+    //--------------------------------
+    DrawBox(
+        420, 390,
+        900, 700,
+        darkPanel,
+        TRUE
+    );
+
+    //--------------------------------
+    // Battle Log
+    //--------------------------------
+    DrawBox(
+        900, 390,
+        1265, 700,
+        darkPanel,
+        TRUE
+    );
+
+    SetDrawBlendMode(
+        DX_BLENDMODE_NOBLEND,
+        0
+    );
+
+
+    //--------------------------------------------------
+    // áD ÉpÉlÉãòg
+    //--------------------------------------------------
+
+    // COMMAND
+    DrawBox(
+        15, 390,
+        420, 700,
+        gold,
+        FALSE
+    );
+
+    // PLAYER
+    DrawBox(
+        420, 390,
+        900, 700,
+        gold,
+        FALSE
+    );
+
+    // Battle Log
+    DrawBox(
+        900, 390,
+        1265, 700,
+        gold,
+        FALSE
+    );
+
+
+    //--------------------------------------------------
+    // áE COMMAND
+    //--------------------------------------------------
+
+    DrawFormatString(
+        45, 410,
+        yellow,
+        "==== COMMAND ===="
+    );
+
+
+    // 1 ÇΩÇΩÇ©Ç§
+    DrawFormatString(
+        55, 460,
+        white,
+        "1  ÇΩÇΩÇ©Ç§"
+    );
+
+    // 2 ÉXÉLÉã
+    DrawFormatString(
+        55, 515,
+        white,
+        "2  ÉXÉLÉã"
+    );
+
+    // 3 ñhå‰
+    DrawFormatString(
+        55, 570,
+        white,
+        "3  Ç⁄Ç§Ç¨ÇÂ"
+    );
+
+    // 4 ïúäà
+    DrawFormatString(
+        55, 625,
+        white,
+        "4  Ç”Ç¡Ç©Ç¬ÇÃÇ∂Ç„Ç‡ÇÒ"
+    );
+
+
+    //--------------------------------------------------
+    // áF PLAYER
+    //--------------------------------------------------
+
+    DrawFormatString(
+        465, 410,
+        yellow,
+        "==== PLAYER ===="
+    );
+
+
+    //--------------------------------------------------
+    // HP
+    //--------------------------------------------------
+
+    DrawFormatString(
+        465, 455,
+        white,
+        "HP"
+    );
+
+    DrawFormatString(
+        750, 455,
+        white,
+        "%d / %d",
+        player.getHp(),
+        player.getMaxHp()
+    );
+
+
+    //--------------------------------------------------
+    // HPÉQÅ[ÉW
+    //--------------------------------------------------
+
+    int hpGaugeX = 500;
+    int hpGaugeY = 480;
+    int hpGaugeWidth = 240;
+    int hpGaugeHeight = 18;
+
+    // îwåi
+    DrawBox(
+        hpGaugeX,
+        hpGaugeY,
+        hpGaugeX + hpGaugeWidth,
+        hpGaugeY + hpGaugeHeight,
+        GetColor(60, 60, 60),
+        TRUE
+    );
+
+    // HP
+    if (player.getMaxHp() > 0)
+    {
+        int hpWidth =
+            hpGaugeWidth *
+            player.getHp() /
+            player.getMaxHp();
+
+        DrawBox(
+            hpGaugeX,
+            hpGaugeY,
+            hpGaugeX + hpWidth,
+            hpGaugeY + hpGaugeHeight,
+            GetColor(220, 60, 60),
+            TRUE
+        );
+    }
+
+
+    //--------------------------------------------------
+    // MP
+    //--------------------------------------------------
+
+    DrawFormatString(
+        465, 520,
+        white,
+        "MP"
+    );
+
+    DrawFormatString(
+        750, 520,
+        white,
+        "%d / %d",
+        player.getMp(),
+        player.getMaxMp()
+    );
+
+
+    //--------------------------------------------------
+    // MPÉQÅ[ÉW
+    //--------------------------------------------------
+
+    int mpGaugeX = 500;
+    int mpGaugeY = 545;
+    int mpGaugeWidth = 240;
+    int mpGaugeHeight = 18;
+
+    // îwåi
+    DrawBox(
+        mpGaugeX,
+        mpGaugeY,
+        mpGaugeX + mpGaugeWidth,
+        mpGaugeY + mpGaugeHeight,
+        GetColor(60, 60, 60),
+        TRUE
+    );
+
+    // MP
+    if (player.getMaxMp() > 0)
+    {
+        int mpWidth =
+            mpGaugeWidth *
+            player.getMp() /
+            player.getMaxMp();
+
+        DrawBox(
+            mpGaugeX,
+            mpGaugeY,
+            mpGaugeX + mpWidth,
+            mpGaugeY + mpGaugeHeight,
+            GetColor(60, 120, 220),
+            TRUE
+        );
+    }
+
+
+    //--------------------------------------------------
+    // ãÊêÿÇËê¸
+    //--------------------------------------------------
+
+    DrawLine(
+        450, 580,
+        870, 580,
+        gold
+    );
+
+
+    //--------------------------------------------------
+    // ATK
+    //--------------------------------------------------
+
+    DrawFormatString(
+        465, 600,
+        white,
+        "ATK"
+    );
+
+    DrawFormatString(
+        800, 600,
+        white,
+        "%d",
+        player.getAttack()
+    );
+
+
+    //--------------------------------------------------
+    // SKILL
+    //--------------------------------------------------
+
+    DrawFormatString(
+        465, 640,
+        white,
+        "SKILL"
+    );
+
+    DrawFormatString(
+        800, 640,
+        white,
+        "%d",
+        player.getSkillPower()
+    );
+
+
+    //--------------------------------------------------
+    // áG Battle Log
+    //--------------------------------------------------
+
+    DrawFormatString(
+        930, 410,
+        yellow,
+        "==== Battle Log ===="
+    );
 
     // ÉçÉO
-    DrawString(1000, 350,
-        "==== Battle Log ====",
-        GetColor(255, 255, 0));
-
     for (int i = 0; i < battleLog.size(); i++)
     {
-        DrawString(1000,
-            380 + i * 25,
-            battleLog[i].c_str(),
-            GetColor(255, 255, 255));
+        DrawFormatString(
+            930,
+            450 + i * 32,
+            white,
+            "%s",
+            battleLog[i].c_str()
+        );
     }
-}
 
+
+    //--------------------------------------------------
+    // áH àÍî‘â∫ÇÃëÄçÏê‡ñæ
+    //--------------------------------------------------
+
+    SetDrawBlendMode(
+        DX_BLENDMODE_ALPHA,
+        220
+    );
+
+    DrawBox(
+        15, 700,
+        1265, 715,
+        darkPanel,
+        TRUE
+    );
+
+    SetDrawBlendMode(
+        DX_BLENDMODE_NOBLEND,
+        0
+    );
+
+    DrawBox(
+        15, 700,
+        1265, 715,
+        gold,
+        FALSE
+    );
+
+    DrawFormatString(
+        35, 700,
+        white,
+        "1Å`4ÉLÅ[Ç≈ÉRÉ}ÉìÉhÇëIëÇµÇƒÇ≠ÇæÇ≥Ç¢"
+    );
+}
 void PlayScene::AddLog(const std::string& text)
 {
     battleLog.push_back(text);

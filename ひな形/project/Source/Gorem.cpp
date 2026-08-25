@@ -8,7 +8,7 @@ Gorem::Gorem()
     Attack = 3;
     Skill = 15;
 
-    gorimage = LoadGraph("image/GOREM.png");
+    gorimage = LoadGraph("image/GOLEM.png");
 }
 
 Gorem::~Gorem()
