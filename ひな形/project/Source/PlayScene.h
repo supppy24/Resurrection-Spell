@@ -18,6 +18,8 @@ public:
     void Draw() override;
 
 private:
+    //”wŒi‰æ‘œ
+    int haikei;
 
     // •ñV‰æ–Ê‰æ‘œ
     int rewardImage;
