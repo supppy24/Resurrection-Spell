@@ -2,11 +2,11 @@
 
 Player::Player()
 // ‰Šú’lİ’è
-    : hp(50),
-    maxHp(50),
-    mp(30),
-    attackPower(5),
-    skillPower(15),
+    : hp(1000),
+    maxHp(1000),
+    mp(100),
+    attackPower(1000),
+    skillPower(1000),
     usedResurrection(false),
     isDefending(false)
 {

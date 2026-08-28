@@ -174,7 +174,7 @@ std::string Enemy::getName() const
 
 
     case14:
-        return "‹U‚è‚Ì‰p—Y";
+        return "‘Â‚¿‚½‰p—Y";
 
 
     case15:

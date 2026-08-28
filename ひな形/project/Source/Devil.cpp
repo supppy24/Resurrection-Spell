@@ -4,9 +4,12 @@
 
 Devil::Devil()
 {
-    HP = 50;
+    maxHP = 50;
+    HP = maxHP;
     Attack = 10;
     Skill = 25;
+
+    turnCount = 0;
 
     deimage = LoadGraph("image/DEVIL.png");
 
@@ -30,6 +33,20 @@ void Devil::Draw(int x, int y)
 // 行動
 int Devil::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //３ターンごとに
+    if (turnCount % 3 == 0)
+    {
+        lastActionName = "地獄の門";
+        return 50;
+    }
+
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

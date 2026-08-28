@@ -4,9 +4,12 @@
 
 Mimick::Mimick()
 {
-    HP = 10;
+    maxHP = 10;
+    HP = maxHP;
     Attack = 0;
     Skill = 20;
+
+    turnCount = 0;
 
     mimiimage = LoadGraph("image/MIMICK.png");
 }

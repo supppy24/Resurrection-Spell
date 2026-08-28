@@ -4,9 +4,12 @@
 
 Flower::Flower()
 {
-    HP = 240;
+    maxHP = 240;
+    HP = maxHP;
     Attack = 20;
     Skill = 30;
+
+    turnCount = 0;
 
     flimage = LoadGraph("image/KAIBUTUHANA.png");
 
@@ -30,6 +33,21 @@ void Flower::Draw(int x, int y)
 // 行動
 int Flower::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //--------------------------------
+    // 5ターンごとに必殺技
+    //--------------------------------
+    if (turnCount % 5 == 0)
+    {
+        lastActionName = "華麗な毒花";
+        return 50;
+    }
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

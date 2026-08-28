@@ -4,9 +4,12 @@
 
 Franken::Franken()
 {
-    HP = 120;
+    maxHP = 120;
+    HP = maxHP;
     Attack = 20;
     Skill = 25;
+
+    turnCount = 0;
 
     frimage = LoadGraph("image/FRANKEN.png");
 
@@ -30,6 +33,21 @@ void Franken::Draw(int x, int y)
 // 行動
 int Franken::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //--------------------------------
+    // 5ターンごとに必殺技
+    //--------------------------------
+    if (turnCount % 5 == 0)
+    {
+        lastActionName = "フランケンアタック";
+        return 45;
+    }
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

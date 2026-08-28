@@ -4,9 +4,12 @@
 
 Shinigami::Shinigami()
 {
-    HP = 80;
+    maxHP = 80;
+    HP = maxHP;
     Attack = 10;
     Skill = 25;
+
+    turnCount = 0;
 
     shiimage = LoadGraph("image/SHINIGAMI.png");
 

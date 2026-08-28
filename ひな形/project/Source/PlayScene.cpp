@@ -252,6 +252,9 @@ void PlayScene::Update()
 
             AddLog(enemy.getName() + "の" +
                 enemy.getLastActionName() + "！");
+
+            AddLog(std::to_string(damage) + "ダメージ！");
+
         }
 
         if (player.isDead())

@@ -4,9 +4,12 @@
 
 Skall::Skall()
 {
-    HP = 25;
+    maxHP = 25;
+    HP = maxHP;
     Attack = 10;
     Skill = 20;
+
+    int turnCount; // s“®ƒ^[ƒ“”
 
     skaimage = LoadGraph("image/SKALL.png");
 }

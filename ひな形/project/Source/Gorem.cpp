@@ -4,9 +4,12 @@
 
 Gorem::Gorem()
 {
-    HP = 80;
+    maxHP = 100;
+    HP = maxHP;
     Attack = 3;
     Skill = 15;
+
+    turnCount = 0;
 
     gorimage = LoadGraph("image/GOLEM.png");
 }
@@ -29,6 +32,21 @@ void Gorem::Draw(int x, int y)
 // 行動
 int Gorem::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //--------------------------------
+    // 3ターンごとに必殺技
+    //--------------------------------
+    if (turnCount % 3 == 0)
+    {
+        lastActionName = "ゴーレムパンチ";
+        return 30;
+    }
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 
