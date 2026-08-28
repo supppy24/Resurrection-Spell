@@ -1,11 +1,12 @@
 #include "Enemy.h"
 #include "DxLib.h"
 #include <cstdlib>
-
+#include <cstdio>
 
 Enemy::Enemy(int type)
 {
     enemyType = type;
+    printf("Enemy生成 type=%d HP=%d\n", enemyType, getHp());
 }
 
 
@@ -110,7 +111,13 @@ int Enemy::getHp() const
     return 0;
 }
 
-
+//--------------------------------
+// 敵タイプ取得
+//--------------------------------
+int Enemy::getType() const
+{
+    return enemyType;
+}
 
 //--------------------------------
 // 名前取得

@@ -93,6 +93,8 @@ void PlayScene::LoadStage(int stage)
     for (int type : stages[stage])
     {
         enemies.push_back(Enemy(type));
+
+
     }
 }
 
@@ -373,6 +375,15 @@ void PlayScene::Draw()
         int enemyY = 50;
 
         enemies[i].Draw(enemyX, enemyY);
+
+        DrawFormatString(
+            50,
+            100 + i * 30,
+            GetColor(255, 255, 255),
+            "DEBUG type=%d HP=%d",
+            enemies[i].getType(),
+            enemies[i].getHp()
+        );
 
         //--------------------------------------------------
         // “Gî•ñƒpƒlƒ‹

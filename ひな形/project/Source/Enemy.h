@@ -65,6 +65,9 @@ public:
     // HP取得
     int getHp() const;
 
+    // 敵タイプ取得
+    int getType() const;
+
 
     // 名前取得
     std::string getName() const;
