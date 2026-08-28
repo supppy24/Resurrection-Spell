@@ -4,9 +4,12 @@
 
 Minotauros::Minotauros()
 {
-    HP = 300;
+    maxHP = 300;
+    HP = maxHP;
     Attack = 20;
     Skill = 45;
+
+    turnCount = 0;
 
     miimage = LoadGraph("image/MINOTAUROSU.png");
 
@@ -30,6 +33,21 @@ void Minotauros::Draw(int x, int y)
 // 行動
 int Minotauros::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //--------------------------------
+    // 5ターンごとに必殺技
+    //--------------------------------
+    if (turnCount % 5 == 0)
+    {
+        lastActionName = "超大暴れ";
+        return 70;
+    }
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

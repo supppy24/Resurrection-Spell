@@ -23,8 +23,11 @@ public:
 
 private:
     int HP;
+    int maxHP;
     int Attack;
     int Skill;
+
+    int turnCount; // 行動ターン数
 
     int skaimage;
     // 最後に使った技名

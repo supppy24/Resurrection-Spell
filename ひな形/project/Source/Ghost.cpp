@@ -4,9 +4,12 @@
 
 Ghost::Ghost()
 {
-    HP = 50;
+    maxHP = 50;
+    HP = maxHP;
     Attack = 2;
     Skill = 7;
+
+    turnCount = 0;
 
     ghoimage = LoadGraph("image/GHOST.png");
 }
@@ -29,6 +32,19 @@ void Ghost::Draw(int x, int y)
 // 行動
 int Ghost::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //３ターンごとに
+    if (turnCount % 3 == 0)
+    {
+        lastActionName = "ゴーストダイブ";
+        return 80;
+    }
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

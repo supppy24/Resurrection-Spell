@@ -4,9 +4,12 @@
 
 Majyo::Majyo()
 {
-    HP = 100;
+    maxHP = 200;
+    HP = maxHP;
     Attack = 3;
     Skill = 45;
+
+    turnCount = 0;
 
     majimage = LoadGraph("image/MAJYO.png");
 }
@@ -29,6 +32,49 @@ void Majyo::Draw(int x, int y)
 // 行動
 int Majyo::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //３ターンごとに
+    if (turnCount % 3 == 0)
+    {
+        lastActionName = "混合魔法";
+        return 80;
+    }
+
+    //HPが10%以下になったら
+    if (hpRate <= 10)
+    {
+        lastActionName = "最終禁断魔法";
+        return 120;
+    }
+
+    //--------------------------------
+   // HP30%以下
+   //--------------------------------
+    if (hpRate <= 30)
+    {
+        int action = rand() % 3;
+
+        switch (action)
+        {
+        case 0:
+            lastActionName = "ギガファイア";
+            return 60;
+
+        case 1:
+            lastActionName = "ギガサンダー";
+            return 60;
+
+        case 2:
+            lastActionName = "ギガアイス";
+            return 60;
+        }
+    }
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 
@@ -42,7 +88,7 @@ int Majyo::Act()
     else
     {
         // スキル名を保存
-        lastActionName = "禁断の魔法";
+        lastActionName = "アイス";
 
         return Skill;
     }

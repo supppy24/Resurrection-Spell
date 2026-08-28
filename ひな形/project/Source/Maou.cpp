@@ -11,7 +11,7 @@ Maou::Maou()
     HP = maxHP;
 
     Attack = 20;
-    Skill = 50;
+    Skill = 30;
 
     turnCount = 0;
 
@@ -74,6 +74,13 @@ int Maou::Act()
             lastActionName = "ñ≈Ç—çsÇ≠ê¢äE";
             return 100;
         }
+    }
+
+    //HPÇ™10%à»â∫Ç…Ç»Ç¡ÇΩÇÁ
+    if (hpRate <= 10)
+    {
+        lastActionName = "à≈ÇÃçŸÇ´";
+        return 120;
     }
 
     //--------------------------------

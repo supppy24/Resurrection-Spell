@@ -24,8 +24,11 @@ public:
 
 private:
     int HP;
+    int maxHP;
     int Attack;
     int Skill;
+
+    int turnCount; // s“®ƒ^[ƒ“”
 
     int flimage;
 

@@ -4,9 +4,12 @@
 
 Gargoyle::Gargoyle()
 {
-    HP = 180;
+    maxHP = 180;
+    HP = maxHP;
     Attack = 12;
     Skill = 15;
+
+    turnCount = 0;
 
     gaimage = LoadGraph("image/GARGOYLE.png");
 
@@ -30,6 +33,21 @@ void Gargoyle::Draw(int x, int y)
 // 行動
 int Gargoyle::Act()
 {
+    // ターン数を増やす
+    turnCount++;
+
+    // HP割合（%）
+    int hpRate = HP * 100 / maxHP;
+
+    //--------------------------------
+    // 5ターンごとに必殺技
+    //--------------------------------
+    if (turnCount % 5 == 0)
+    {
+        lastActionName = "乱れ急降下";
+        return 80;
+    }
+
     // 0なら通常攻撃、1ならスキル
     int action = rand() % 2;
 

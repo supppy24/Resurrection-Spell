@@ -4,10 +4,13 @@
 
 Slime::Slime()
 {
-    HP = 20;
+    maxHP = 20;
+    HP = maxHP;
     Attack = 2;
     Skill = 5;
 
+    turnCount = 0;
+    
     slimage = LoadGraph("image/SLIME.png");
 
     lastActionName = "";

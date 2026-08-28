@@ -4,7 +4,8 @@
 
 Goblin::Goblin()
 {
-    HP = 30;
+    maxHP = 30;
+    HP = maxHP;
     Attack = 4;
     Skill = 5;
 
