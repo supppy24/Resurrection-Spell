@@ -7,7 +7,7 @@ Majyo::Majyo()
     maxHP = 200;
     HP = maxHP;
     Attack = 3;
-    Skill = 45;
+    Skill = 30;
 
     turnCount = 0;
 

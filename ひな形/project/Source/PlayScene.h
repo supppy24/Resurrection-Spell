@@ -24,6 +24,9 @@ private:
     // 報酬画面画像
     int rewardImage;
 
+    // ゲームオーバー画像
+    int gameOverImage;
+
     // プレイヤー
     Player player;
 
@@ -39,8 +42,16 @@ private:
     // コマンド画像
     int kImage;
 
-    // ゲーム終了
+    // ゲームオーバー?
     bool isGameOver;
+
+    // ゲームオーバーになった時間
+    int gameOverStartTime;
+
+    // ゲームクリア関連
+    bool isGameClear;
+    int gameClearImage;
+    int gameClearStartTime;
 
     // プレイヤーターン
     bool isPlayerTurn;

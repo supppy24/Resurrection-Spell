@@ -7,7 +7,7 @@ Minotauros::Minotauros()
     maxHP = 300;
     HP = maxHP;
     Attack = 20;
-    Skill = 45;
+    Skill = 35;
 
     turnCount = 0;
 

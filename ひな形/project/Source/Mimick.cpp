@@ -7,7 +7,7 @@ Mimick::Mimick()
     maxHP = 10;
     HP = maxHP;
     Attack = 0;
-    Skill = 20;
+    Skill = 5;
 
     turnCount = 0;
 

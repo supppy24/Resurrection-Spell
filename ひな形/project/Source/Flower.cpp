@@ -6,8 +6,8 @@ Flower::Flower()
 {
     maxHP = 240;
     HP = maxHP;
-    Attack = 20;
-    Skill = 30;
+    Attack = 10;
+    Skill = 25;
 
     turnCount = 0;
 

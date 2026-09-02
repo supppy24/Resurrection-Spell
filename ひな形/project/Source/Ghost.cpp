@@ -42,7 +42,7 @@ int Ghost::Act()
     if (turnCount % 3 == 0)
     {
         lastActionName = "ゴーストダイブ";
-        return 80;
+        return 30;
     }
 
     // 0なら通常攻撃、1ならスキル

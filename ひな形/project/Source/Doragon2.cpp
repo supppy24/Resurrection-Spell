@@ -7,7 +7,7 @@ Doragon2::Doragon2()
     maxHP = 300;
     HP = maxHP;
     Attack = 20;
-    Skill = 50;
+    Skill = 30;
 
     dora2image = LoadGraph("image/GOLDENDRAGON.png");
 }
@@ -41,8 +41,8 @@ int Doragon2::Act()
     //--------------------------------
     if (turnCount % 3 == 0)
     {
-        lastActionName = "ゴールドフレイム";
-        return 80;
+        lastActionName = "天雷";
+        return 100;
     }
 
 
@@ -64,8 +64,8 @@ int Doragon2::Act()
             return 80;
 
         case 2:
-            lastActionName = "天雷";
-            return 100;
+            lastActionName = "ゴールドフレイム";
+            return 80;
         }
     }
 

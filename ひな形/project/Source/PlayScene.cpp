@@ -12,11 +12,16 @@ PlayScene::PlayScene()
     haikei = LoadGraph("image/HAIKEI2.png");
     kImage = LoadGraph("image/Komando.jpg");
     rewardImage = LoadGraph("image/Reward.png");
+    gameOverImage = LoadGraph("image/GAMEOVER.png");
+    gameClearImage = LoadGraph("image/GAMECLEAR.png");
 
     srand((unsigned int)time(nullptr));
 
     isGameOver = false;
     isPlayerTurn = true;
+
+    gameOverStartTime = 0;
+    gameClearStartTime = 0;
 
     oldKey1 = false;
     oldKey2 = false;
@@ -66,8 +71,6 @@ PlayScene::PlayScene()
         {22},
         {8},
         {14},//30
-
-
     };
 
     LoadStage(currentStage);
@@ -105,6 +108,23 @@ void PlayScene::Update()
 
     if (isGameOver)
     {
+        // GAME OVERになってから3秒経過したか
+        if (GetNowCount() - gameOverStartTime >= 3000)
+        {
+            SceneManager::ChangeScene("TITLE");
+        }
+
+        return;
+    }
+
+    if (isGameClear)
+    {
+        // GAME CLEARになってから5秒経過
+        if (GetNowCount() - gameClearStartTime >= 5000)
+        {
+            SceneManager::ChangeScene("TITLE");
+        }
+
         return;
     }
 
@@ -261,6 +281,9 @@ void PlayScene::Update()
         {
             AddLog("プレイヤーは倒れた...");
             isGameOver = true;
+
+            // ゲームオーバーになった瞬間の時間を記録
+            gameOverStartTime = GetNowCount();
         }
 
         // 敵ターン終了 → 次のターンへ
@@ -274,10 +297,20 @@ void PlayScene::Update()
     //------------------------
     if (enemies.empty())
     {
+        // 最後の階層ならゲームクリア
+        if (currentStage == stages.size() - 1)
+        {
+            AddLog("ゲームクリア！");
+
+            isGameClear = true;
+            gameClearStartTime = GetNowCount();
+
+            return;
+        }
+
+        // 最後の階層ではない場合は報酬画面
         gameState = GameState::Reward;
         isPlayerTurn = false;
-
-        // キーを離すまで待つ
         rewardWaitRelease = true;
 
         AddLog("報酬を選択してください");
@@ -772,6 +805,29 @@ void PlayScene::Draw()
         white,
         "1～4キーでコマンドを選択してください"
     );
+    // GAME OVER
+    if (isGameOver)
+    {
+        // GAME OVER画像を上部中央に表示
+        DrawExtendGraph(
+            140, 50,
+            1140, 331,
+            gameOverImage,
+            TRUE
+        );
+    }
+
+    // GAME CLEAR
+    if (isGameClear)
+    {
+        DrawExtendGraph(
+            140, 50,
+            1140, 331,
+            gameClearImage,
+            TRUE
+        );
+    }
+
 }
 void PlayScene::AddLog(const std::string& text)
 {
@@ -795,11 +851,9 @@ void PlayScene::ApplyReward(int choice)
         //------------------------
     case 1:
     {
-        player.AddAttack(2);
         player.AddMaxHp(10);
         player.AddMp(2);
 
-        AddLog("攻撃力が 2 上がった！");
         AddLog("最大HPが 10 上がった！");
         AddLog("MPが 2 上がった！");
 
@@ -811,8 +865,10 @@ void PlayScene::ApplyReward(int choice)
     //------------------------
     case 2:
     {
+        player.AddAttack(2);
         player.LearnNewSkill();
 
+        AddLog("攻撃力が 2 上がった！");
         AddLog("スキルの威力が上がった！");
 
         break;
@@ -848,12 +904,22 @@ void PlayScene::ApplyReward(int choice)
         AddLog(std::to_string(floorNumber) + "階に到達した！");
         AddLog("新しい敵が現れた！");
 
+        // 11階、21階、31階、41階...で,ふっかつのじゅもんを再使用可能にする
+        if (floorNumber >= 11 && floorNumber % 10 == 1)
+        {
+            player.ResetResurrection();
+
+            AddLog("ふっかつのじゅもんが使用可能になった！");
+        }
+
         gameState = GameState::Battle;
         isPlayerTurn = true;
     }
     else
     {
         AddLog("ゲームクリア！");
-        isGameOver = true;
+
+        isGameClear = true;
+        gameClearStartTime = GetNowCount();
     }
 }
