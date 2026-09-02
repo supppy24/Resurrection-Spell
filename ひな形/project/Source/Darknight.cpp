@@ -11,7 +11,7 @@ Darknight::Darknight()
 
     turnCount = 0;
 
-    dnimage = LoadGraph("image/DARKNIGHT.png");
+    dnimage = LoadGraph("image/DARKKNIGHT.png");
 
     lastActionName = "";
 }

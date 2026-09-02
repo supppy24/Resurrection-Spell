@@ -4,10 +4,10 @@
 
 Minotauros::Minotauros()
 {
-    maxHP = 300;
+    maxHP = 200;
     HP = maxHP;
-    Attack = 20;
-    Skill = 35;
+    Attack = 5;
+    Skill = 15;
 
     turnCount = 0;
 
@@ -45,7 +45,7 @@ int Minotauros::Act()
     if (turnCount % 5 == 0)
     {
         lastActionName = "’´‘å–\‚ê";
-        return 70;
+        return 45;
     }
 
     // 0‚È‚ç’ÊíUŒ‚A1‚È‚çƒXƒLƒ‹
