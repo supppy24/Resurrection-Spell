@@ -49,8 +49,8 @@ int Maou::Act()
     //--------------------------------
     if (turnCount % 5 == 0)
     {
-        lastActionName = "Ià‚Ì‹V®";
-        return 80;
+        lastActionName = "–Å‚Ñs‚­¢ŠE";
+        return 50;
     }
 
     //--------------------------------
@@ -71,8 +71,8 @@ int Maou::Act()
             return 80;
 
         case 2:
-            lastActionName = "–Å‚Ñs‚­¢ŠE";
-            return 100;
+            lastActionName = "Ià‚Ì‹V®";
+            return 80;
         }
     }
 

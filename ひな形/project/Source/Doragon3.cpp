@@ -7,7 +7,7 @@ Doragon3::Doragon3()
     maxHP = 300;
     HP = maxHP;
     Attack = 20;
-    Skill = 50;
+    Skill = 30;
 
     dora3image = LoadGraph("image/SILVERDRAGON.png");
 }
@@ -41,8 +41,8 @@ int Doragon3::Act()
     //--------------------------------
     if (turnCount % 3 == 0)
     {
-        lastActionName = "シルバーフレイム";
-        return 80;
+        lastActionName = "銀氷";
+        return 100;
     }
 
     //--------------------------------
@@ -63,8 +63,8 @@ int Doragon3::Act()
             return 80;
 
         case 2:
-            lastActionName = "天雷";
-            return 100;
+            lastActionName = "シルバーフレイム";
+            return 80;
         }
     }
 

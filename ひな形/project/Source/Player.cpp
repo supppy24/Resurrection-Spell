@@ -2,11 +2,12 @@
 
 Player::Player()
 // 初期値設定
-    : hp(1000),
-    maxHp(1000),
+    : hp(100),
+    maxHp(100),
+    maxMp(100),
     mp(100),
-    attackPower(1000),
-    skillPower(1000),
+    attackPower(5),
+    skillPower(15),
     usedResurrection(false),
     isDefending(false)
 {
@@ -91,6 +92,12 @@ bool Player::resurrect()
     return true;
 }
 
+// ふっかつのじゅもんを再使用可能にする
+void Player::ResetResurrection()
+{
+    usedResurrection = false;
+}
+
 // ダメージを受ける
 void Player::takeDamage(int damage)
 {
@@ -130,7 +137,7 @@ void Player::AddMaxHp(int value)
 // 最大MP取得
 int Player::getMaxMp() const
 {
-    return mp;
+    return maxMp;
 }
 
 // HP全回復
@@ -161,6 +168,7 @@ int Player::getSkillPower() const
 // 最大MPアップ
 void Player::AddMp(int value)
 {
+    maxMp += value;
     mp += value;
 }
 

@@ -15,6 +15,9 @@ private:
     // 現在MP
     int mp;
 
+    // 最大MP
+    int maxMp;
+
     // 通常攻撃力
     int attackPower;
 
@@ -83,6 +86,9 @@ public:
 
     // スキル威力取得
     int getSkillPower() const;
+
+    // ふっかつのじゅもんを再使用可能にする
+    void ResetResurrection();
 };
 
 #endif

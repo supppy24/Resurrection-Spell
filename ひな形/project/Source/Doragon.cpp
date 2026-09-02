@@ -7,7 +7,7 @@ Doragon::Doragon()
     maxHP = 300;
     HP = maxHP;
     Attack = 20;
-    Skill = 50;
+    Skill = 30;
 
     doraimage = LoadGraph("image/REDDRAGON.png");
 }
@@ -37,12 +37,12 @@ int Doragon::Act()
     int hpRate = HP * 100 / maxHP;
 
     //--------------------------------
-    // 3ターンごとに必殺技
+    // 5ターンごとに必殺技
     //--------------------------------
-    if (turnCount % 3 == 0)
+    if (turnCount % 5 == 0)
     {
-        lastActionName = "レッドフレイム";
-        return 80;
+        lastActionName = "劫火";
+        return 100;
     }
 
     //--------------------------------
@@ -63,8 +63,8 @@ int Doragon::Act()
             return 80;
 
         case 2:
-            lastActionName = "劫火";
-            return 100;
+            lastActionName = "レッドフレイム";
+            return 80;
         }
     }
 
