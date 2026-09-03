@@ -55,7 +55,7 @@ std::string Enemy::getName() const
     {
     case 1:  return "スライム";
     case 2:  return "ゴブリン";
-    case 3:  return "ドラゴン";
+    case 3:  return "レッドドラゴン";
     case 4:  return "ミミック";
     case 5:  return "ゴースト";
     case 6:  return "ゴーレム";
@@ -73,8 +73,8 @@ std::string Enemy::getName() const
     case 18: return "ミノタウロス";
     case 19: return "死神";
     case 20: return "堕天使";
-    case 21: return "ドラゴン2";
-    case 22: return "ドラゴン3";
+    case 21: return "ゴールデンドラゴン";
+    case 22: return "シルバードラゴン";
     }
 
     return "不明な敵";
