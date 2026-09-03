@@ -6,7 +6,7 @@ Player::Player()
     maxHp(100),
     maxMp(100),
     mp(100),
-    attackPower(10000),
+    attackPower(5),
     skillPower(15),
     usedResurrection(false),
     isDefending(false)
