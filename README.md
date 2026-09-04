@@ -1,4 +1,4 @@
-# Resurrection-Spell
+# ふっかつのじゅもん
 
 #ゲーム概要
 
