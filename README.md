@@ -37,4 +37,4 @@
 
 #ゲームプレイスクリーンショット
 
-(ScreenShot/GAMEPLAY.png)
+!(ScreenShot/GAMEPLAY.png)
