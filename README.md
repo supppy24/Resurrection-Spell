@@ -34,3 +34,6 @@
 #今後の改善点
 
 ・制作に余裕がなく細かいところまで詰めることが出来なかった
+
+
+(img src = "ScreenShot/GAMEPLAY.png")
